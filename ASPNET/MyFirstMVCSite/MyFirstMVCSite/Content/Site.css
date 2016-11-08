@@ -23,4 +23,5 @@ a:hover
 {
     width:200px;
     cursor:pointer;
+    display:inline;
 }
