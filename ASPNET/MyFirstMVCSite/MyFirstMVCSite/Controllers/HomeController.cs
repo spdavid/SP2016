@@ -23,5 +23,20 @@ namespace MyFirstMVCSite.Controllers
         {
             return View();
         }
+
+        public ActionResult Assignment1()
+        {
+            return View();
+        }
+
+        public ActionResult PaddingAndMargin()
+        {
+            return View();
+        }
+
+        public ActionResult FloatingElements()
+        {
+            return View();
+        }
     }
 }

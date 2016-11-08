@@ -1,0 +1,64 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>FloatingElements</title>
+    <style>
+        #container div {
+            height: 100px;
+            width: 100px;
+            background-color: #f7f7f7;
+            border: 1px solid black;
+            margin: 5px;
+            padding: 5px;
+            text-align: center;
+            float: left;
+        }
+
+            #container div:hover {
+                background-color: #bfe1b0;
+            }
+
+        .clearfix:after {
+            content: ".";
+            visibility: hidden;
+            display: block;
+            height: 0;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="clearfix" id="container">
+        <div>
+            some text
+        </div>
+        <div>
+            some text
+        </div>
+        <div>
+            some text
+        </div>
+        <div>
+            some text
+        </div>
+        <div>
+            some text
+        </div>
+        <div>
+            some text
+        </div>
+        <div>
+            some text
+        </div>
+    </div>
+    @*<br style="clear:both" /> this is bad practice.. Use ClearFix*@
+    <div>some text</div>
+</body>
+</html>

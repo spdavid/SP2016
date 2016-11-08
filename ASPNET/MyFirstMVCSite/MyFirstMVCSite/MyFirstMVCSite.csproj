@@ -91,6 +91,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Assignment1.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -106,6 +107,9 @@
     <Content Include="Web.config" />
     <Content Include="Views\Home\Page2.cshtml" />
     <Content Include="Views\Home\Page3.cshtml" />
+    <Content Include="Views\Home\Assignment1.cshtml" />
+    <Content Include="Views\Home\PaddingAndMargin.cshtml" />
+    <Content Include="Views\Home\FloatingElements.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
