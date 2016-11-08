@@ -1,0 +1,26 @@
+﻿a
+{
+    text-decoration:none;
+}
+a:hover
+{
+    background-color:#dbdbdb;
+}
+
+
+.greenyellow
+{
+    color:green;
+    background-color:yellow;
+}
+
+#MyH3
+{
+    color:purple;
+}
+
+.carpic
+{
+    width:200px;
+    cursor:pointer;
+}
