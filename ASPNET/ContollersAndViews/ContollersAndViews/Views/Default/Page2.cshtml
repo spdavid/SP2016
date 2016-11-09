@@ -1,0 +1,36 @@
+﻿@using ContollersAndViews.Models;
+@{
+    ViewBag.Title = "Page2";
+}
+
+<h2>Page2</h2>
+@{ 
+    for (int i = 0; i < 10; i++)
+    {
+        <div>
+            looping nr @i.ToString()
+        </div>
+    }
+}
+
+@ViewBag.foo
+
+@{
+    <table class="table table-hover">
+        <tr>
+            <th>Player Name</th>
+            <th>Position</th>
+            <th>Age</th>
+        </tr>
+
+        @foreach (HockeyPlayer player in ViewBag.Players)
+        {
+            <tr>
+                <td>@player.Name</td>
+                <td>@player.Position</td>
+                <td>@player.Age.ToString()</td>
+            </tr>
+        }
+
+    </table>
+}
