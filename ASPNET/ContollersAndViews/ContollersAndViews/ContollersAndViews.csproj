@@ -108,6 +108,9 @@
     <Content Include="Views\Default\PageHockey.cshtml" />
     <Content Include="Views\PostingFun\Index.cshtml" />
     <Content Include="Views\PostingFun\CatchThePost.cshtml" />
+    <Content Include="Views\HockeyPlayer\Create.cshtml" />
+    <Content Include="Views\HockeyPlayer\Edit.cshtml" />
+    <Content Include="Views\HockeyPlayer\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />

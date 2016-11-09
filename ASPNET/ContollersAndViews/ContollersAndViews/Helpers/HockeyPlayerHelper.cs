@@ -9,6 +9,8 @@ namespace ContollersAndViews.Helpers
     public class HockeyPlayerHelper
     {
 
+        public static List<HockeyPlayer> players = GetFakeHockyPlayerList();
+
         public static List<HockeyPlayer> GetFakeHockyPlayerList()
         {
             return new List<HockeyPlayer> {
@@ -20,6 +22,29 @@ namespace ContollersAndViews.Helpers
                 new HockeyPlayer( ) {Id=6, Name = "David6", Birthday = DateTime.Parse("1979-06-25"), Position = "RightDef" },
                 new HockeyPlayer( ) {Id=7, Name = "David7", Birthday = DateTime.Parse("1979-06-25"), Position = "Center" }
             };
+        }
+
+
+        public static void AddHockeyPlayer(HockeyPlayer newPLayer)
+        {
+            HockeyPlayer latestplayer = players.OrderByDescending(p => p.Id).FirstOrDefault();
+            int newid = latestplayer.Id + 1;
+            newPLayer.Id = newid;
+            players.Add(newPLayer);
+        }
+
+        public static void EditHockeyPlayer(HockeyPlayer updatedplayer)
+        {
+            HockeyPlayer player = players.Where(p => p.Id == updatedplayer.Id).FirstOrDefault();
+            player.Name = updatedplayer.Name;
+            player.Position = updatedplayer.Position;
+            player.Birthday = updatedplayer.Birthday;
+        }
+
+        public static void DeleteHockeyPlayer(int id)
+        {
+            HockeyPlayer player = players.Where(p => p.Id == id).FirstOrDefault();
+            players.Remove(player);
         }
     }
 }

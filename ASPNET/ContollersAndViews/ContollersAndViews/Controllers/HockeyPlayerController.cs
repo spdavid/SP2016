@@ -12,7 +12,7 @@ namespace ContollersAndViews.Controllers
         // GET: HockeyPlayer
         public ActionResult Index()
         {
-            var players = Helpers.HockeyPlayerHelper.GetFakeHockyPlayerList();
+            var players = Helpers.HockeyPlayerHelper.players;
 
             return View(players);
         }
@@ -20,7 +20,7 @@ namespace ContollersAndViews.Controllers
         // GET: HockeyPlayer/Details/5
         public ActionResult Details(int id)
         {
-            var players = Helpers.HockeyPlayerHelper.GetFakeHockyPlayerList();
+            var players = Helpers.HockeyPlayerHelper.players;
 
             HockeyPlayer player = players
                 .Where(p => p.Id == id)
@@ -37,11 +37,11 @@ namespace ContollersAndViews.Controllers
 
         // POST: HockeyPlayer/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(HockeyPlayer player)
         {
             try
             {
-                // TODO: Add insert logic here
+                Helpers.HockeyPlayerHelper.AddHockeyPlayer(player);
 
                 return RedirectToAction("Index");
             }
@@ -54,16 +54,22 @@ namespace ContollersAndViews.Controllers
         // GET: HockeyPlayer/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var players = Helpers.HockeyPlayerHelper.players;
+
+            HockeyPlayer player = players
+                .Where(p => p.Id == id)
+                .FirstOrDefault();
+
+            return View(player);
         }
 
         // POST: HockeyPlayer/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(HockeyPlayer player)
         {
             try
             {
-                // TODO: Add update logic here
+                Helpers.HockeyPlayerHelper.EditHockeyPlayer(player);
 
                 return RedirectToAction("Index");
             }
@@ -76,16 +82,23 @@ namespace ContollersAndViews.Controllers
         // GET: HockeyPlayer/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+
+            var players = Helpers.HockeyPlayerHelper.players;
+
+            HockeyPlayer player = players
+                .Where(p => p.Id == id)
+                .FirstOrDefault();
+
+            return View(player);
         }
 
         // POST: HockeyPlayer/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(HockeyPlayer player)
         {
             try
             {
-                // TODO: Add delete logic here
+                Helpers.HockeyPlayerHelper.DeleteHockeyPlayer(player.Id);
 
                 return RedirectToAction("Index");
             }
