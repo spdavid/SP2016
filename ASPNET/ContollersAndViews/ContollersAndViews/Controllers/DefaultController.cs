@@ -10,8 +10,24 @@ namespace ContollersAndViews.Controllers
     public class DefaultController : Controller
     {
         // GET: Default
-        public ActionResult Index()
+        public ActionResult Index(string hey, string key)
         {
+            ViewBag.hey = hey;
+            ViewBag.key = key;
+
+            // same as using parameters like the above
+            //ViewBag.hey = Request.QueryString["hey"];
+            //ViewBag.key = Request.QueryString["key"];
+
+
+
+            return View();
+        }
+
+        public ActionResult PageHockey(HockeyPlayer player)
+        {
+
+
             return View();
         }
 

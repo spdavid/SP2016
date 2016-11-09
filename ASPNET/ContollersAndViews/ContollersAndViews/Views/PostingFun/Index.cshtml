@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<form method="post" action="/PostingFun/CatchThePost">
+    <div>
+        Name: <input type="text" name="Name" />
+    </div>
+    <div>
+        CardType:
+        <select name="CardType">
+            <option value="Visa">Visa</option>
+            <option value="MasterCard">MasterCard</option>
+            <option value="AmericanExpress">AmericanExpress</option>
+        </select>
+
+    </div>
+    <div>
+        CardNumber: <input type="text" name="Number" />
+    </div>
+
+    <input type="submit" value="Buy Something" />
+
+</form>
+
