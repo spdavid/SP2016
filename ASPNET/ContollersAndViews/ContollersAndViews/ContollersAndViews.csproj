@@ -102,10 +102,14 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
     <Content Include="Views\Default\Page2.cshtml" />
+    <Content Include="Views\Default\Page3.cshtml" />
+    <Content Include="Views\HockeyPlayer\Index.cshtml" />
+    <Content Include="Views\HockeyPlayer\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\HockeyPlayerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ContollersAndViews.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -21,6 +22,14 @@ namespace ContollersAndViews.Controllers
             ViewBag.Players = Helpers.HockeyPlayerHelper.GetFakeHockyPlayerList();
 
             return View();
+        }
+
+        public ActionResult Page3()
+        {
+           List<HockeyPlayer> players = Helpers.HockeyPlayerHelper.GetFakeHockyPlayerList();
+
+            
+            return View(players);
         }
     }
 }
