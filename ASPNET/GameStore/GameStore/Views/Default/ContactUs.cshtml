@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "ContactUs";
+}
+<div class="storecontainer clearfix">
+    <form method="post">
+        <h2>ContactUs</h2>
+        <div>
+            Name: <input type="text" name="Name" value="" />
+        </div>
+        <div>
+            Email: <input type="email" name="Email" value="" />
+        </div>
+        <div>
+            Message:<textarea name="Message" rows="6"></textarea>
+        </div>
+        <input type="submit" value="Send Message" />
+    </form>
+
+     you entered the following
+    @ViewBag.Name
+    @ViewBag.Email
+    @ViewBag.Message
+</div>

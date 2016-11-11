@@ -20,13 +20,13 @@
                 </button>
                 <img id="logo" src="~/Images/Go-Game-Logo.png" />
                 <div id="menu">
-                    @Html.ActionLink("Application name", "Index", "Default", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("My Game Store", "Index", "Default", new { area = "" }, new { @class = "navbar-brand" })
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li><a href="#">Home</a></li>
+                            <li><a href="/default/index">Home</a></li>
                             <li><a href="#">Games</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Find Us</a></li>
+                            <li><a href="/default/contactus">Contact Us</a></li>
+                            <li><a href="/default/findus">Find Us</a></li>
                         </ul>
                     </div>
                 </div>

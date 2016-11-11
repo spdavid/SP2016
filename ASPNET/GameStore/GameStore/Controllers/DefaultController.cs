@@ -13,5 +13,19 @@ namespace GameStore.Controllers
         {
             return View();
         }
+
+        public ActionResult ContactUs()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ContactUs(string Name, string Email, string Message)
+        {
+            ViewBag.Name = Name;
+            ViewBag.Email = Email;
+            ViewBag.Message = Message;
+            return View();
+        }
     }
 }
