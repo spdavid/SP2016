@@ -1,4 +1,7 @@
-﻿
+﻿@model GameStore.Models.StartPage
+
+@using GameStore.Models;
+
 @{
     ViewBag.Title = "Index";
 }
@@ -10,6 +13,15 @@
     </div>
     <div class="percent30"> 
         <h4>Latest Games</h4>
+        <div id="gameList">
+            @foreach (Game game in Model.LatestGames)
+            {
+                <div class="gameitem">
+                    <h5>@game.Title<text>(@game.Genre)</text></h5>
+                    <div>@game.Description</div>
+                </div>
+            }
+        </div>
     </div>
 
     </div>
