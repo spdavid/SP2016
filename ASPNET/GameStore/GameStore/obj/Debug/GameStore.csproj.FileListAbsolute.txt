@@ -31,3 +31,7 @@ C:\Users\david\Source\Repos\SP2016\ASPNET\GameStore\GameStore\bin\System.Web.Mvc
 C:\Users\david\Source\Repos\SP2016\ASPNET\GameStore\GameStore\obj\Debug\GameStore.csprojResolveAssemblyReference.cache
 C:\Users\david\Source\Repos\SP2016\ASPNET\GameStore\GameStore\obj\Debug\GameStore.dll
 C:\Users\david\Source\Repos\SP2016\ASPNET\GameStore\GameStore\obj\Debug\GameStore.pdb
+C:\Users\david\Source\Repos\SP2016\ASPNET\GameStore\GameStore\bin\jQuery.Validation.Unobtrusive.Native.dll
+C:\Users\david\Source\Repos\SP2016\ASPNET\GameStore\GameStore\bin\Newtonsoft.Json.dll
+C:\Users\david\Source\Repos\SP2016\ASPNET\GameStore\GameStore\bin\Newtonsoft.Json.pdb
+C:\Users\david\Source\Repos\SP2016\ASPNET\GameStore\GameStore\bin\Newtonsoft.Json.xml

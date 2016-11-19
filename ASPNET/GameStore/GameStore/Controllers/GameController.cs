@@ -34,8 +34,10 @@ namespace GameStore.Controllers
         {
             try
             {
-                GameHelper.AddGame(newGame);
-
+                if (ModelState.IsValid)
+                {
+                    GameHelper.AddGame(newGame);
+                }
                 return RedirectToAction("Index");
             }
             catch

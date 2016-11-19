@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HockeyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Game">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HomeTeamId" Type="Int32" Nullable="false" />
+    <Property Name="AwayTeamId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Team" Relationship="Self.FK_Game_Team" FromRole="Game" ToRole="Team" />
+    <NavigationProperty Name="Team1" Relationship="Self.FK_Game_Team2" FromRole="Game" ToRole="Team" />
+    <NavigationProperty Name="GoalsAssists" Relationship="Self.FK_GoalsAssists_Game" FromRole="Game" ToRole="GoalsAssists" />
+  </EntityType>
+  <EntityType Name="GoalsAssist">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GameId" Type="Int32" Nullable="false" />
+    <Property Name="PlayerId" Type="Int32" Nullable="false" />
+    <Property Name="IsGoal" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Game" Relationship="Self.FK_GoalsAssists_Game" FromRole="GoalsAssists" ToRole="Game" />
+    <NavigationProperty Name="Player" Relationship="Self.FK_GoalsAssists_Player" FromRole="GoalsAssists" ToRole="Player" />
+  </EntityType>
+  <EntityType Name="Player">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PositionId" Type="Int32" />
+    <Property Name="TeamId" Type="Int32" />
+    <NavigationProperty Name="GoalsAssists" Relationship="Self.FK_GoalsAssists_Player" FromRole="Player" ToRole="GoalsAssists" />
+    <NavigationProperty Name="Position" Relationship="Self.FK_Player_Position" FromRole="Player" ToRole="Position" />
+    <NavigationProperty Name="Team" Relationship="Self.FK_Player_Team" FromRole="Player" ToRole="Team" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Players" Relationship="Self.FK_Player_Position" FromRole="Position" ToRole="Player" />
+  </EntityType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Games" Relationship="Self.FK_Game_Team" FromRole="Team" ToRole="Game" />
+    <NavigationProperty Name="Games1" Relationship="Self.FK_Game_Team2" FromRole="Team" ToRole="Game" />
+    <NavigationProperty Name="Players" Relationship="Self.FK_Player_Team" FromRole="Team" ToRole="Player" />
+  </EntityType>
+  <Association Name="FK_Game_Team">
+    <End Role="Team" Type="Self.Team" Multiplicity="1" />
+    <End Role="Game" Type="Self.Game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="HomeTeamId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Game_Team2">
+    <End Role="Team" Type="Self.Team" Multiplicity="1" />
+    <End Role="Game" Type="Self.Game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="AwayTeamId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GoalsAssists_Game">
+    <End Role="Game" Type="Self.Game" Multiplicity="1" />
+    <End Role="GoalsAssists" Type="Self.GoalsAssist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Game">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GoalsAssists">
+        <PropertyRef Name="GameId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GoalsAssists_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="GoalsAssists" Type="Self.GoalsAssist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GoalsAssists">
+        <PropertyRef Name="PlayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Player_Position">
+    <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
+    <End Role="Player" Type="Self.Player" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Player">
+        <PropertyRef Name="PositionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Player_Team">
+    <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+    <End Role="Player" Type="Self.Player" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Player">
+        <PropertyRef Name="TeamId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HockeyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Games" EntityType="Self.Game" />
+    <EntitySet Name="GoalsAssists" EntityType="Self.GoalsAssist" />
+    <EntitySet Name="Players" EntityType="Self.Player" />
+    <EntitySet Name="Positions" EntityType="Self.Position" />
+    <EntitySet Name="Teams" EntityType="Self.Team" />
+    <AssociationSet Name="FK_Game_Team" Association="Self.FK_Game_Team">
+      <End Role="Team" EntitySet="Teams" />
+      <End Role="Game" EntitySet="Games" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Game_Team2" Association="Self.FK_Game_Team2">
+      <End Role="Team" EntitySet="Teams" />
+      <End Role="Game" EntitySet="Games" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GoalsAssists_Game" Association="Self.FK_GoalsAssists_Game">
+      <End Role="Game" EntitySet="Games" />
+      <End Role="GoalsAssists" EntitySet="GoalsAssists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GoalsAssists_Player" Association="Self.FK_GoalsAssists_Player">
+      <End Role="Player" EntitySet="Players" />
+      <End Role="GoalsAssists" EntitySet="GoalsAssists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Player_Position" Association="Self.FK_Player_Position">
+      <End Role="Position" EntitySet="Positions" />
+      <End Role="Player" EntitySet="Players" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Player_Team" Association="Self.FK_Player_Team">
+      <End Role="Team" EntitySet="Teams" />
+      <End Role="Player" EntitySet="Players" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="98d105dffe824de29d4bee9acf17a763" Name="Diagram1" ZoomLevel="63">
+        <EntityTypeShape EntityType="HockeyModel.Game" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HockeyModel.GoalsAssist" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HockeyModel.Player" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HockeyModel.Position" Width="1.5" PointX="3.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HockeyModel.Team" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <AssociationConnector Association="HockeyModel.FK_Game_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="HockeyModel.FK_Game_Team2" ManuallyRouted="false" />
+        <AssociationConnector Association="HockeyModel.FK_GoalsAssists_Game" ManuallyRouted="false" />
+        <AssociationConnector Association="HockeyModel.FK_GoalsAssists_Player" ManuallyRouted="false" />
+        <AssociationConnector Association="HockeyModel.FK_Player_Position" ManuallyRouted="false" />
+        <AssociationConnector Association="HockeyModel.FK_Player_Team" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
