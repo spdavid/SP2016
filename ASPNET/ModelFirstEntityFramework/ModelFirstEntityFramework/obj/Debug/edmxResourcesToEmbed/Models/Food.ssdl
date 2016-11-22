@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Food.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="FoodStoreContainer">
+    <EntitySet Name="Foods" EntityType="Food.Store.Foods" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FootCategories" EntityType="Food.Store.FootCategories" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FootCategoryFood" Association="Food.Store.FootCategoryFood">
+      <End Role="FootCategory" EntitySet="FootCategories" />
+      <End Role="Food" EntitySet="Foods" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Foods">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FootCategory_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FootCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FootCategoryFood">
+    <End Role="FootCategory" Type="Food.Store.FootCategories" Multiplicity="1" />
+    <End Role="Food" Type="Food.Store.Foods" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FootCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Food">
+        <PropertyRef Name="FootCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

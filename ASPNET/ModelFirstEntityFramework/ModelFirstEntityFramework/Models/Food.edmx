@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Food.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="FoodStoreContainer">
+    <EntitySet Name="Foods" EntityType="Food.Store.Foods" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FootCategories" EntityType="Food.Store.FootCategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Colors" EntityType="Food.Store.Colors" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ColorFood" EntityType="Food.Store.ColorFood" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FootCategoryFood" Association="Food.Store.FootCategoryFood">
+      <End Role="FootCategory" EntitySet="FootCategories" />
+      <End Role="Food" EntitySet="Foods" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ColorFood_Color" Association="Food.Store.FK_ColorFood_Color">
+      <End Role="Color" EntitySet="Colors" />
+      <End Role="ColorFood" EntitySet="ColorFood" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ColorFood_Food" Association="Food.Store.FK_ColorFood_Food">
+      <End Role="Food" EntitySet="Foods" />
+      <End Role="ColorFood" EntitySet="ColorFood" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Foods">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FoodDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FootCategory_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FootCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Colors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ColorFood">
+    <Key>
+      <PropertyRef Name="Color_Id" />
+      <PropertyRef Name="Foods_Id" />
+    </Key>
+    <Property Name="Color_Id" Type="int" Nullable="false" />
+    <Property Name="Foods_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FootCategoryFood">
+    <End Role="FootCategory" Type="Food.Store.FootCategories" Multiplicity="1" />
+    <End Role="Food" Type="Food.Store.Foods" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FootCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Food">
+        <PropertyRef Name="FootCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ColorFood_Color">
+    <End Role="Color" Type="Food.Store.Colors" Multiplicity="1" />
+    <End Role="ColorFood" Type="Food.Store.ColorFood" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Color">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ColorFood">
+        <PropertyRef Name="Color_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ColorFood_Food">
+    <End Role="ColorFood" Type="Food.Store.ColorFood" Multiplicity="*" />
+    <End Role="Food" Type="Food.Store.Foods" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Food">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ColorFood">
+        <PropertyRef Name="Foods_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Food" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="FoodContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Foods" EntityType="Food.Food" />
+          <EntitySet Name="FootCategories" EntityType="Food.FootCategory" />
+          <AssociationSet Name="FootCategoryFood" Association="Food.FootCategoryFood">
+            <End Role="FootCategory" EntitySet="FootCategories" />
+            <End Role="Food" EntitySet="Foods" />
+          </AssociationSet>
+          <EntitySet Name="Colors" EntityType="Food.Color" />
+          <AssociationSet Name="ColorFood" Association="Food.ColorFood">
+            <End Role="Color" EntitySet="Colors" />
+            <End Role="Food" EntitySet="Foods" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Food">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="FootCategory" Relationship="Food.FootCategoryFood" FromRole="Food" ToRole="FootCategory" />
+          <Property Name="FoodDescription" Type="String" Nullable="false" />
+          <NavigationProperty Name="Color" Relationship="Food.ColorFood" FromRole="Food" ToRole="Color" />
+          </EntityType>
+        <EntityType Name="FootCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Foods" Relationship="Food.FootCategoryFood" FromRole="FootCategory" ToRole="Food" />
+        </EntityType>
+        <Association Name="FootCategoryFood">
+          <End Type="Food.FootCategory" Role="FootCategory" Multiplicity="1" />
+          <End Type="Food.Food" Role="Food" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Color">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Foods" Relationship="Food.ColorFood" FromRole="Color" ToRole="Food" />
+        </EntityType>
+        <Association Name="ColorFood">
+          <End Type="Food.Color" Role="Color" Multiplicity="*" />
+          <End Type="Food.Food" Role="Food" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FoodStoreContainer" CdmEntityContainer="FoodContainer">
+    <EntitySetMapping Name="Foods">
+      <EntityTypeMapping TypeName="IsTypeOf(Food.Food)">
+        <MappingFragment StoreEntitySet="Foods">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FoodDescription" ColumnName="FoodDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FootCategories">
+      <EntityTypeMapping TypeName="IsTypeOf(Food.FootCategory)">
+        <MappingFragment StoreEntitySet="FootCategories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Colors">
+      <EntityTypeMapping TypeName="IsTypeOf(Food.Color)">
+        <MappingFragment StoreEntitySet="Colors">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FootCategoryFood" TypeName="Food.FootCategoryFood" StoreEntitySet="Foods">
+      <EndProperty Name="FootCategory">
+        <ScalarProperty Name="Id" ColumnName="FootCategory_Id" />
+      </EndProperty>
+      <EndProperty Name="Food">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ColorFood" TypeName="Food.ColorFood" StoreEntitySet="ColorFood">
+      <EndProperty Name="Color">
+        <ScalarProperty Name="Id" ColumnName="Color_Id" />
+      </EndProperty>
+      <EndProperty Name="Food">
+        <ScalarProperty Name="Id" ColumnName="Foods_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Food" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="FoodContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Foods" EntityType="Food.Food" />
+    <EntitySet Name="FootCategories" EntityType="Food.FootCategory" />
+    <AssociationSet Name="FootCategoryFood" Association="Food.FootCategoryFood">
+      <End Role="FootCategory" EntitySet="FootCategories" />
+      <End Role="Food" EntitySet="Foods" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Food">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <NavigationProperty Name="FootCategory" Relationship="Food.FootCategoryFood" FromRole="Food" ToRole="FootCategory" />
+    <Property Name="FoodDescription" Type="String" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FootCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <NavigationProperty Name="Foods" Relationship="Food.FootCategoryFood" FromRole="FootCategory" ToRole="Food" />
+  </EntityType>
+  <Association Name="FootCategoryFood">
+    <End Type="Food.FootCategory" Role="FootCategory" Multiplicity="1" />
+    <End Type="Food.Food" Role="Food" Multiplicity="*" />
+  </Association>
+</Schema>
