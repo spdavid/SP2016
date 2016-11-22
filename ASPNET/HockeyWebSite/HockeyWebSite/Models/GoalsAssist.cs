@@ -7,23 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HockeyWebSite
+namespace HockeyWebSite.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Position
+    public partial class GoalsAssist
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Position()
-        {
-            this.Players = new HashSet<Player>();
-        }
-    
         public int Id { get; set; }
-        public string Name { get; set; }
+        public int GameId { get; set; }
+        public int PlayerId { get; set; }
+        public bool IsGoal { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Player> Players { get; set; }
+        public virtual Game Game { get; set; }
+        public virtual Player Player { get; set; }
     }
 }

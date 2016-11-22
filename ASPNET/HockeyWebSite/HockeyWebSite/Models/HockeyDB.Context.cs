@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HockeyWebSite
+namespace HockeyWebSite.Models
 {
     using System;
     using System.Data.Entity;

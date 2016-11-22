@@ -105,12 +105,12 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="HockeyDB.Context.tt">
+    <Content Include="Models\HockeyDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>HockeyDB.edmx</DependentUpon>
       <LastGenOutput>HockeyDB.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="HockeyDB.tt">
+    <Content Include="Models\HockeyDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>HockeyDB.edmx</DependentUpon>
       <LastGenOutput>HockeyDB.cs</LastGenOutput>
@@ -160,49 +160,50 @@
     <Compile Include="Controllers\PlayersController.cs" />
     <Compile Include="Controllers\PositionsController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
-    <Compile Include="Game.cs">
+    <Compile Include="Models\Annotations.cs" />
+    <Compile Include="Models\Game.cs">
       <DependentUpon>HockeyDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="GoalsAssist.cs">
+    <Compile Include="Models\GoalsAssist.cs">
       <DependentUpon>HockeyDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="HockeyDB.Context.cs">
+    <Compile Include="Models\HockeyDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>HockeyDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="HockeyDB.cs">
+    <Compile Include="Models\HockeyDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>HockeyDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="HockeyDB.Designer.cs">
+    <Compile Include="Models\HockeyDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>HockeyDB.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Player.cs">
+    <Compile Include="Models\Player.cs">
       <DependentUpon>HockeyDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Position.cs">
+    <Compile Include="Models\Position.cs">
       <DependentUpon>HockeyDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Team.cs">
+    <Compile Include="Models\Team.cs">
       <DependentUpon>HockeyDB.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <EntityDeploy Include="HockeyDB.edmx">
+    <EntityDeploy Include="Models\HockeyDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>HockeyDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="HockeyDB.edmx.diagram">
+    <Content Include="Models\HockeyDB.edmx.diagram">
       <DependentUpon>HockeyDB.edmx</DependentUpon>
     </Content>
     <Content Include="Views\_ViewStart.cshtml" />
@@ -222,7 +223,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

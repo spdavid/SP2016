@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HockeyWebSite.Game>
+﻿@model IEnumerable<HockeyWebSite.Models.Game>
 
 @{
     ViewBag.Title = "Index";
@@ -15,10 +15,10 @@
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Team.Name)
+            Away Team
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Team1.Name)
+            Home Team
         </th>
         <th></th>
     </tr>

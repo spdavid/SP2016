@@ -7,28 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HockeyWebSite
+namespace HockeyWebSite.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Team
+    public partial class Position
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Team()
+        public Position()
         {
-            this.Games = new HashSet<Game>();
-            this.Games1 = new HashSet<Game>();
             this.Players = new HashSet<Player>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Game> Games { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Game> Games1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Player> Players { get; set; }
     }

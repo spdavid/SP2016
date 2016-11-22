@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using HockeyWebSite;
+using HockeyWebSite.Models;
+
 
 namespace HockeyWebSite.Controllers
 {

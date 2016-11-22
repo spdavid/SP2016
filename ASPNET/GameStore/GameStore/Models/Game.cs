@@ -16,7 +16,7 @@ namespace GameStore.Models
 
         [Display(Name="Year Released")]
         [DataType(DataType.Date, ErrorMessage ="You need a valid date")]
-        [DisplayFormat(ApplyFormatInEditMode=true,DataFormatString = "{0:yyyy-MM-dd}")]
+        [DisplayFormat(ApplyFormatInEditMode=true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime YearReleased { get; set; }
 
         public string Genre { get; set; }
