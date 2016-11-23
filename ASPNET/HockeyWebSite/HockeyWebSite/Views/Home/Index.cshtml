@@ -1,7 +1,26 @@
-﻿
+﻿@using HockeyWebSite.Models;
+@model List<HockeyWebSite.Models.Team>
+
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>List of Teams</h2>
+
+<table class="table">
+    <tr>
+        <th>Team name</th>
+        <th>Amount of players</th>
+        <th>Games Played</th>
+    </tr>
+    @foreach (Team team in Model)
+    {
+        <tr>
+            <td><a href="/home/TeamPlayers?TeamId=@team.Id">@team.Name</a></td>
+            <td>@team.Players.Count()</td>
+            <td>@(team.Games.Count() + team.Games1.Count())</td>
+        </tr>
+        
+    }
+</table>
 

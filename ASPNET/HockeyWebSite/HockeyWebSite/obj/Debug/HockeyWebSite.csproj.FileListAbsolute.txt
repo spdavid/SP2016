@@ -34,3 +34,4 @@ C:\Users\david\Source\Repos\SP2016\ASPNET\HockeyWebSite\HockeyWebSite\bin\System
 C:\Users\david\Source\Repos\SP2016\ASPNET\HockeyWebSite\HockeyWebSite\bin\System.Web.Mvc.xml
 C:\Users\david\Source\Repos\SP2016\ASPNET\HockeyWebSite\HockeyWebSite\obj\Debug\HockeyWebSite.dll
 C:\Users\david\Source\Repos\SP2016\ASPNET\HockeyWebSite\HockeyWebSite\obj\Debug\HockeyWebSite.pdb
+C:\Users\david\Source\Repos\SP2016\ASPNET\HockeyWebSite\HockeyWebSite\obj\Debug\HockeyWebSite.csprojResolveAssemblyReference.cache

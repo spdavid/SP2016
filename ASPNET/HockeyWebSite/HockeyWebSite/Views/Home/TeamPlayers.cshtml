@@ -1,0 +1,29 @@
+﻿@using HockeyWebSite.Models;
+@model Team
+
+@{
+    ViewBag.Title = "TeamPlayers";
+}
+
+<h2>Team - @Model.Name</h2>
+
+<h3>Player List</h3>
+
+<table class="table table-striped">
+    <tr>
+        <th>Player Name</th>
+        <th>Position</th>
+        <th>Goals</th>
+        <th>Assists</th>
+    </tr>
+    @foreach (Player player in Model.Players.OrderByDescending(p=> p.GoalsAssists.Count()))
+    {
+        <tr>
+            <td>@player.Name</td>
+            <td>@player.Position.Name</td>
+            <td>@player.GoalsAssists.Where(ga => ga.IsGoal == true).Count()</td>
+            <td>@player.GoalsAssists.Where(ga => ga.IsGoal == false).Count()</td>
+        </tr>
+    }
+</table>
+
