@@ -40,7 +40,11 @@ namespace CodeFirstEntityFramework.Controllers
         // GET: Cars/Create
         public ActionResult Create()
         {
-            ViewBag.BrandId = new SelectList(db.Brand, "Id", "Name");
+            SelectList brands = new SelectList(db.Brand, "Id", "Name");
+            var modifiedBrands = brands.ToList();
+            modifiedBrands.Insert(0, new SelectListItem() { Text = "None", Value = "-1" });
+
+            ViewBag.Brands = modifiedBrands;
             return View();
         }
 
@@ -53,6 +57,10 @@ namespace CodeFirstEntityFramework.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (car.BrandId == -1)
+                {
+                    car.BrandId = null;
+                }    
                 db.Cars.Add(car);
                 db.SaveChanges();
                 return RedirectToAction("Index");
