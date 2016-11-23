@@ -6,6 +6,7 @@
         <MappingFragment StoreEntitySet="Foods">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FoodDescription" ColumnName="FoodDescription" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -17,12 +18,29 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Colors">
+      <EntityTypeMapping TypeName="IsTypeOf(Food.Color)">
+        <MappingFragment StoreEntitySet="Colors">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <AssociationSetMapping Name="FootCategoryFood" TypeName="Food.FootCategoryFood" StoreEntitySet="Foods">
       <EndProperty Name="FootCategory">
         <ScalarProperty Name="Id" ColumnName="FootCategory_Id" />
       </EndProperty>
       <EndProperty Name="Food">
         <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="FootCategory_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ColorFood" TypeName="Food.ColorFood" StoreEntitySet="ColorFood">
+      <EndProperty Name="Color">
+        <ScalarProperty Name="Id" ColumnName="Color_Id" />
+      </EndProperty>
+      <EndProperty Name="Food">
+        <ScalarProperty Name="Id" ColumnName="Foods_Id" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

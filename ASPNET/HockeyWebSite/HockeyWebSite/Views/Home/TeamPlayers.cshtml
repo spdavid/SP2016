@@ -15,6 +15,7 @@
         <th>Position</th>
         <th>Goals</th>
         <th>Assists</th>
+        <th></th>
     </tr>
     @foreach (Player player in Model.Players.OrderByDescending(p=> p.GoalsAssists.Count()))
     {
@@ -23,7 +24,8 @@
             <td>@player.Position.Name</td>
             <td>@player.GoalsAssists.Where(ga => ga.IsGoal == true).Count()</td>
             <td>@player.GoalsAssists.Where(ga => ga.IsGoal == false).Count()</td>
-        </tr>
+            <td> <a href="/home/tradePlayer?playerid=@player.Id&TeamId=@player.TeamId">Trade Player</a></td>
+          </tr>
     }
 </table>
 

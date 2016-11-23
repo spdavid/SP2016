@@ -25,13 +25,29 @@ namespace HockeyWebSite.Controllers
             {
                 return HttpNotFound();
             }
-          //int TeamId =  int.Parse(Request.QueryString["TeamId"])
+            //int TeamId =  int.Parse(Request.QueryString["TeamId"])
             HockeyEntities db = new HockeyEntities();
             Team team = db.Teams.Where(t => t.Id == TeamId.Value).FirstOrDefault();
 
             return View(team);
 
 
+        }
+        public ActionResult TradePlayer(int? playerid)
+        {
+            HockeyEntities db = new HockeyEntities();
+            Player player = db.Players.Where(p => p.Id == playerid).FirstOrDefault();
+            List<Team> teams = db.Teams.Where(t => t.Id != player.TeamId).ToList();
+            ViewBag.availableTeams = teams;
+
+            return View(player);
+        }
+
+        [HttpPost]
+        public ActionResult TradePlayer(int? newTeamId, int? playerid, int? TeamId)
+        {
+            Helpers.HockeyHelper.TradePlayer(playerid.Value, newTeamId.Value);
+            return RedirectToAction("TeamPlayers", new { TeamId = TeamId, fakeItemInQuey = "lalalal" });
         }
     }
 }

@@ -126,7 +126,7 @@
           <NavigationProperty Name="Foods" Relationship="Food.FootCategoryFood" FromRole="FootCategory" ToRole="Food" />
         </EntityType>
         <Association Name="FootCategoryFood">
-          <End Type="Food.FootCategory" Role="FootCategory" Multiplicity="1" />
+          <End Type="Food.FootCategory" Role="FootCategory" Multiplicity="0..1" />
           <End Type="Food.Food" Role="Food" Multiplicity="*" />
         </Association>
         <EntityType Name="Color">
@@ -179,6 +179,7 @@
       <EndProperty Name="Food">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
+            <Condition ColumnName="FootCategory_Id" IsNull="false" />
     </AssociationSetMapping>
     <AssociationSetMapping Name="ColorFood" TypeName="Food.ColorFood" StoreEntitySet="ColorFood">
       <EndProperty Name="Color">

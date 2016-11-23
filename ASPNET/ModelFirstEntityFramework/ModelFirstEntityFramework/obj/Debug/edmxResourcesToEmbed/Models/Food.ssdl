@@ -3,9 +3,19 @@
   <EntityContainer Name="FoodStoreContainer">
     <EntitySet Name="Foods" EntityType="Food.Store.Foods" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="FootCategories" EntityType="Food.Store.FootCategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Colors" EntityType="Food.Store.Colors" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ColorFood" EntityType="Food.Store.ColorFood" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FootCategoryFood" Association="Food.Store.FootCategoryFood">
       <End Role="FootCategory" EntitySet="FootCategories" />
       <End Role="Food" EntitySet="Foods" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ColorFood_Color" Association="Food.Store.FK_ColorFood_Color">
+      <End Role="Color" EntitySet="Colors" />
+      <End Role="ColorFood" EntitySet="ColorFood" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ColorFood_Food" Association="Food.Store.FK_ColorFood_Food">
+      <End Role="Food" EntitySet="Foods" />
+      <End Role="ColorFood" EntitySet="ColorFood" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Foods">
@@ -14,6 +24,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FoodDescription" Type="nvarchar(max)" Nullable="false" />
     <Property Name="FootCategory_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="FootCategories">
@@ -22,6 +33,21 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Colors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ColorFood">
+    <Key>
+      <PropertyRef Name="Color_Id" />
+      <PropertyRef Name="Foods_Id" />
+    </Key>
+    <Property Name="Color_Id" Type="int" Nullable="false" />
+    <Property Name="Foods_Id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FootCategoryFood">
     <End Role="FootCategory" Type="Food.Store.FootCategories" Multiplicity="1" />
@@ -32,6 +58,30 @@
       </Principal>
       <Dependent Role="Food">
         <PropertyRef Name="FootCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ColorFood_Color">
+    <End Role="Color" Type="Food.Store.Colors" Multiplicity="1" />
+    <End Role="ColorFood" Type="Food.Store.ColorFood" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Color">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ColorFood">
+        <PropertyRef Name="Color_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ColorFood_Food">
+    <End Role="ColorFood" Type="Food.Store.ColorFood" Multiplicity="*" />
+    <End Role="Food" Type="Food.Store.Foods" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Food">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ColorFood">
+        <PropertyRef Name="Foods_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

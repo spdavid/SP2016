@@ -7,6 +7,11 @@
       <End Role="FootCategory" EntitySet="FootCategories" />
       <End Role="Food" EntitySet="Foods" />
     </AssociationSet>
+    <EntitySet Name="Colors" EntityType="Food.Color" />
+    <AssociationSet Name="ColorFood" Association="Food.ColorFood">
+      <End Role="Color" EntitySet="Colors" />
+      <End Role="Food" EntitySet="Foods" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Food">
     <Key>
@@ -16,6 +21,7 @@
     <Property Name="Name" Type="String" Nullable="false" />
     <NavigationProperty Name="FootCategory" Relationship="Food.FootCategoryFood" FromRole="Food" ToRole="FootCategory" />
     <Property Name="FoodDescription" Type="String" Nullable="false" />
+    <NavigationProperty Name="Color" Relationship="Food.ColorFood" FromRole="Food" ToRole="Color" />
   </EntityType>
   <EntityType Name="FootCategory">
     <Key>
@@ -26,7 +32,19 @@
     <NavigationProperty Name="Foods" Relationship="Food.FootCategoryFood" FromRole="FootCategory" ToRole="Food" />
   </EntityType>
   <Association Name="FootCategoryFood">
-    <End Type="Food.FootCategory" Role="FootCategory" Multiplicity="1" />
+    <End Type="Food.FootCategory" Role="FootCategory" Multiplicity="0..1" />
+    <End Type="Food.Food" Role="Food" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Color">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <NavigationProperty Name="Foods" Relationship="Food.ColorFood" FromRole="Color" ToRole="Food" />
+  </EntityType>
+  <Association Name="ColorFood">
+    <End Type="Food.Color" Role="Color" Multiplicity="*" />
     <End Type="Food.Food" Role="Food" Multiplicity="*" />
   </Association>
 </Schema>

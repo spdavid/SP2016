@@ -1,0 +1,19 @@
+﻿@using HockeyWebSite.Models
+@model Player
+@{
+    ViewBag.Title = "TradePlayer";
+}
+
+<h2>TradePlayer</h2>
+
+<div>Where do you want to trade @Model.Name to? Select a team below.</div>
+
+<form method="post">
+    <select name="newTeamId">
+        @foreach (Team team in ViewBag.availableTeams)
+        {
+            <option value="@team.Id">@team.Name</option>
+        }
+    </select>
+    <input type="submit" value="Make Trade" />
+</form>
