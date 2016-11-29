@@ -25,6 +25,7 @@ namespace StoreApplication.Models
         public int Price { get; set; }
         public int ProductCategoryId { get; set; }
         public bool Discontinued { get; set; }
+        public bool FeaturedProduct { get; set; }
     
         public virtual ProductCategory ProductCategory { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

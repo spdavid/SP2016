@@ -18,6 +18,12 @@
             @Html.DisplayNameFor(model => model.Price)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Discontinued)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FeaturedProduct)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.ProductCategory.Name)
         </th>
         <th></th>
@@ -30,6 +36,12 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Discontinued)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FeaturedProduct)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ProductCategory.Name)

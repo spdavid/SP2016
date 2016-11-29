@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StoreApplication.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +10,11 @@ namespace StoreApplication.Controllers
     public class HomeController : Controller
     {
         // GET: Home
-        public ActionResult Index()
+        public ActionResult Index(int? StoreId, int? CategoryId)
         {
-            return View();
+          StoreFront front = Helpers.StoreFrontHelper.GetStoreFront(StoreId, CategoryId);
+
+            return View(front);
         }
     }
 }

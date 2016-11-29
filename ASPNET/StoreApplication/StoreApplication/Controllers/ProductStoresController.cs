@@ -14,21 +14,51 @@ namespace StoreApplication.Controllers
     {
         private StoreEntities db = new StoreEntities();
 
+        public ActionResult Index(int? storeId)
+        {
+            InventoryPage invPage = Helpers.InventoryHelper.GetInventoryPage(storeId);
+            return View(invPage);
+        }
+
+        [HttpPost]
+        public ActionResult Index(int? storeId, FormCollection values)
+        {
+            string[] selectedProdcuts = values["Isinstore"].Split(',');
+            string[] prodIdValues = values["productId"].Split(',');
+            string[] AmountValues = values["Amount"].Split(',');
+
+            for (int i = 0; i < prodIdValues.Length; i++)
+            {
+                int productId = int.Parse(prodIdValues[i]);
+                bool isInStore = selectedProdcuts.Contains(productId.ToString());
+                int amount = int.Parse(AmountValues[i]);
+
+
+                Helpers.InventoryHelper.UpdateInventoryProduct(productId, isInStore, amount, storeId.Value);
+            }
+
+
+            InventoryPage invPage = Helpers.InventoryHelper.GetInventoryPage(storeId);
+            return View(invPage);
+        }
+
+
         // GET: ProductStores
-        public ActionResult Index()
+        public ActionResult Index2()
         {
             var productStores = db.ProductStores.Include(p => p.Product).Include(p => p.Store);
             return View(productStores.ToList());
         }
 
         // GET: ProductStores/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? storeId, int? productId)
         {
-            if (id == null)
+            if (storeId == null || productId == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProductStore productStore = db.ProductStores.Find(id);
+
+            ProductStore productStore = Helpers.InventoryHelper.GetInventoryItem(storeId.Value, productId.Value);
             if (productStore == null)
             {
                 return HttpNotFound();
@@ -64,13 +94,14 @@ namespace StoreApplication.Controllers
         }
 
         // GET: ProductStores/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? storeId, int? productId)
         {
-            if (id == null)
+            if (storeId == null || productId == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProductStore productStore = db.ProductStores.Find(id);
+            ProductStore productStore = Helpers.InventoryHelper.GetInventoryItem(storeId.Value, productId.Value);
+
             if (productStore == null)
             {
                 return HttpNotFound();
@@ -99,13 +130,14 @@ namespace StoreApplication.Controllers
         }
 
         // GET: ProductStores/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? storeId, int? productId)
         {
-            if (id == null)
+            if (storeId == null || productId == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProductStore productStore = db.ProductStores.Find(id);
+            ProductStore productStore = Helpers.InventoryHelper.GetInventoryItem(storeId.Value, productId.Value);
+
             if (productStore == null)
             {
                 return HttpNotFound();
@@ -116,11 +148,9 @@ namespace StoreApplication.Controllers
         // POST: ProductStores/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int? storeId, int? productId)
         {
-            ProductStore productStore = db.ProductStores.Find(id);
-            db.ProductStores.Remove(productStore);
-            db.SaveChanges();
+            Helpers.InventoryHelper.DeleteInventoryItem(storeId.Value, productId.Value);
             return RedirectToAction("Index");
         }
 
@@ -132,5 +162,7 @@ namespace StoreApplication.Controllers
             }
             base.Dispose(disposing);
         }
+
+
     }
 }

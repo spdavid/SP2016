@@ -24,6 +24,11 @@ class Program
         plants.Add(new Plant() { Id = 12, Color = "green", Name = "plant11", hasLeaves = true, Height = 44 });
         plants.Add(new Plant() { Id = 13, Color = "green", Name = "plant12", hasLeaves = true, Height = 456 });
 
+
+        int[] plantids = { 7, 6, 8, 12 };
+        plants.Where(p => plantids.Contains(p.Id));
+
+
         List<Plant> allWithLeavesOldFashoned = new List<Plant>();
 
         foreach (Plant foo in plants)
