@@ -16,5 +16,12 @@ namespace StoreApplication.Controllers
 
             return View(front);
         }
-    }
+        public ActionResult AllProducts()
+        {
+              StoreEntities db = new StoreEntities();
+
+            return View(db.Products.ToList());
+        }
+
+        }
 }

@@ -209,6 +209,8 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\ProductStores\Index.cshtml" />
+    <Content Include="Views\Shared\Products.cshtml" />
+    <Content Include="Views\Home\AllProducts.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
