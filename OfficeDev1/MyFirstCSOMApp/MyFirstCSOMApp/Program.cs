@@ -28,8 +28,10 @@ namespace MyFirstCSOMApp
                 
                 ctx.Credentials = new SharePointOnlineCredentials(userName, securePassword);
 
-                Basics.WebOperations(ctx);
-              
+                // Basics.WebOperations(ctx);
+                Basics.GetAllContentTypes(ctx);
+                
+                    
                 Console.WriteLine("Press enter to continue");
                 Console.ReadLine();
             }

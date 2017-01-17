@@ -34,7 +34,31 @@ namespace MyFirstCSOMApp.CSOM
 
         public static void UpdateWeb(ClientContext ctx)
         {
+            Web web = ctx.Web;
+            // set the new title
+            web.Title = "Davids New Title";
+            // update the web
+            web.Update();
 
+            // send changes to O365
+            ctx.ExecuteQuery();
+
+        }
+
+        public static void GetAllContentTypes(ClientContext ctx)
+        {
+            ContentTypeCollection contentTypes = ctx.Web.ContentTypes;
+
+            ctx.Load(contentTypes, cts => cts.Include(ct => ct.Name)); // include the name property in the 
+           // ctx.Load(ctx.Web);
+
+            ctx.ExecuteQuery();
+
+
+            foreach (ContentType ct in contentTypes)
+            {
+                Console.WriteLine(ct.Name);
+            }
 
         }
 
