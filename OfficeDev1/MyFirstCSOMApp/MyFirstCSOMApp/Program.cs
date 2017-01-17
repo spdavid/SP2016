@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.SharePoint.Client;
 using System.Security;
+using MyFirstCSOMApp.CSOM;
 
 namespace MyFirstCSOMApp
 {
@@ -27,17 +28,8 @@ namespace MyFirstCSOMApp
                 
                 ctx.Credentials = new SharePointOnlineCredentials(userName, securePassword);
 
-                // the web object based on the site we used when we connected to our client context
-                Web web = ctx.Web;
-                
-                // making an order
-                ctx.Load(web);
-
-                // the waiter is getting or me
-                ctx.ExecuteQuery();
-
-                Console.WriteLine(web.Title);
-
+                Basics.WebOperations(ctx);
+              
                 Console.WriteLine("Press enter to continue");
                 Console.ReadLine();
             }
@@ -72,5 +64,34 @@ namespace MyFirstCSOMApp
 
             return pass.TrimEnd("\r".ToCharArray());
         }
+
+
+        static void RunOperation(ClientContext ctx, string Description, string Expression, long ellapsedTime = -1)
+        {
+
+            Console.WriteLine();
+            Console.WriteLine(Description);
+            Console.WriteLine(Expression);
+
+            if (ellapsedTime == -1)
+            {
+                var watch = System.Diagnostics.Stopwatch.StartNew();
+
+                ctx.ExecuteQuery();
+
+                watch.Stop();
+                ellapsedTime = watch.ElapsedMilliseconds;
+            }
+            Console.Write("Total Time to execute:");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(ellapsedTime);
+            Console.ResetColor();
+
+
+
+
+        }
+
+
     }
 }
