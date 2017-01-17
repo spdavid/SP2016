@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script>
+        var foo = "some value";
+
+    </script>
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
+    <script src="tsSource/Person.js"></script>
+    <script>
+        function init() {
+            var person = new TypeScriptIntro.Person(37, "David", "Blue");
+            person.Introduce();
+        }
+       
+        function ready(fn) {
+            if (document.readyState != 'loading') {
+                fn();
+            } else {
+                document.addEventListener('DOMContentLoaded', fn);
+            }
+        }
+
+        ready(init);
+
+    </script>
+</head>
+<body>
+    <div id="result"></div>
+</body>
+</html>
