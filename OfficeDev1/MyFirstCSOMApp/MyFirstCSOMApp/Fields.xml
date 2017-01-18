@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Fields>
+
+  <Field ID="{388F3ECA-394F-4257-802C-92A4427D0EF0}" 
+         StaticName="Important_Person" 
+         Name="Important_Person"
+         Type="User" 
+         DisplayName="Important Person"
+         List="UserInfo" 
+         Required="TRUE" 
+         EnforceUniqueValues="FALSE" 
+         ShowField="ImnName" 
+         UserSelectionMode="PeopleAndGroups" 
+         UserSelectionScope="0" 
+         Group="Custom Columns" 
+        />
+
+  <Field ID="{D443E51B-1609-4CE6-96BD-9FCEA3FDE329}" 
+         StaticName="Important_Choice"
+         Name="Important_Choice"
+         Type="MultiChoice" 
+         DisplayName="Important Choice" 
+         Required="FALSE" 
+         EnforceUniqueValues="FALSE" 
+         Indexed="FALSE"
+         FillInChoice="FALSE" 
+         Group="Custom Columns" 
+         >
+    <Default>
+      One
+    </Default>
+    <CHOICES>
+      <CHOICE>
+        One
+      </CHOICE>
+      <CHOICE>
+        Two
+      </CHOICE>
+      <CHOICE>
+        Three
+      </CHOICE>
+    </CHOICES>
+  </Field>
+  
+</Fields>

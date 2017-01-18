@@ -36,6 +36,20 @@ namespace MyFirstCSOMApp.CSOM
 
 
             /// PNP way
+            //FieldCreationInformation fieldinfo = new FieldCreationInformation(FieldType.DateTime);
+            //fieldinfo.Group = "Custom Columns";
+            //fieldinfo.Id = new Guid("{81682584-4E54-4D73-9DF9-E0FE3688833D}");
+            //fieldinfo.InternalName = "Important_Date3";
+            //fieldinfo.DisplayName = "important date 3";
+
+            //FieldDateTime datetimeField = web.CreateField<FieldDateTime>(fieldinfo);
+            //datetimeField.DefaultValue = "[today]";
+            //datetimeField.DisplayFormat = DateTimeFieldFormatType.DateTime;
+            //datetimeField.UpdateAndPushChanges(true);
+
+            //ctx.ExecuteQuery();
+
+
             FieldCreationInformation fieldinfo = new FieldCreationInformation(FieldType.DateTime);
             fieldinfo.Group = "Custom Columns";
             fieldinfo.Id = new Guid("{81682584-4E54-4D73-9DF9-E0FE3688833D}");
@@ -50,9 +64,19 @@ namespace MyFirstCSOMApp.CSOM
 
             ctx.ExecuteQuery();
 
+            // DeleteFields(ctx);
+
+            string pathToXML = AppDomain.CurrentDomain.BaseDirectory + "fields.xml";
+            ctx.Web.CreateFieldsFromXMLFile(pathToXML);
 
         }
 
+        public static void DeleteFields(ClientContext ctx)
+        {
+            ctx.Web.RemoveFieldByInternalName("Important_Person");
+            ctx.Web.RemoveFieldByInternalName("Important_Choice");
 
+
+        }
     }
 }
