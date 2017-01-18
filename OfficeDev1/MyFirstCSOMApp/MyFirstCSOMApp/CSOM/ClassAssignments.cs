@@ -157,6 +157,23 @@ namespace MyFirstCSOMApp.CSOM
             
         }
 
+        public static void CreateList(ClientContext ctx)
+        {
+            // pnp version
+            ctx.Web.CreateList(ListTemplateType.Tasks, "Important tasks", false,true, "lists/importanttasks");
+
+            ctx.Web.CreateList(ListTemplateType.GenericList, "customList", false, true, "lists/customList");
+
+            // CSOM version
+            ListCreationInformation listInfo = new ListCreationInformation();
+            listInfo.TemplateType = 101;
+            listInfo.Title = "Important Docs";
+            listInfo.Url = "lists/Docs";
+
+            ctx.Web.Lists.Add(listInfo);
+            ctx.ExecuteQuery();
+
+        }
 
     }
 }

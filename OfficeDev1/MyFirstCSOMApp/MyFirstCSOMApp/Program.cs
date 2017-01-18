@@ -13,6 +13,31 @@ namespace MyFirstCSOMApp
     {
         static void Main(string[] args)
         {
+            //  using (ClientContext ctx = LogInAsUser())
+              using (ClientContext ctx = LogInAsApp())
+            {
+
+                ctx.Load(ctx.Web);
+                ctx.Load(ctx.Web.CurrentUser);
+
+                ctx.ExecuteQuery();
+
+                Console.WriteLine(ctx.Web.Title);
+                Console.WriteLine(ctx.Web.CurrentUser.Title);
+
+
+                //Basics.WebOperations(ctx);
+                //Basics.GetAllContentTypes(ctx);
+                //ClassAssignments.CreateList(ctx);
+
+                Console.WriteLine("Press enter to continue");
+                Console.ReadLine();
+            }
+
+        }
+
+        static ClientContext LogInAsUser()
+        {
             string userName = "david@zalodev.com"; // user@company.onmicrosoft.com
             string password = GetPassword();
 
@@ -22,24 +47,17 @@ namespace MyFirstCSOMApp
                 securePassword.AppendChar(c);
             }
 
+            ClientContext ctx = new ClientContext("https://zalodev.sharepoint.com/sites/OD1");
+            ctx.Credentials = new SharePointOnlineCredentials(userName, securePassword);
 
-            using (ClientContext ctx = new ClientContext("https://zalodev.sharepoint.com/sites/OD1"))
-            {
-                
-                ctx.Credentials = new SharePointOnlineCredentials(userName, securePassword);
-
-                //Basics.WebOperations(ctx);
-                //Basics.GetAllContentTypes(ctx);
-
-
-
-                ClassAssignments.ChangeMasterPage(ctx);
-                    
-                Console.WriteLine("Press enter to continue");
-                Console.ReadLine();
-            }
+            return ctx;
+        }
+        static ClientContext LogInAsApp()
+        {
+            return Helpers.ContextHelper.GetAppOnlyContext("https://zalodev.sharepoint.com/sites/OD1");
 
         }
+
 
 
         public static string GetPassword()
