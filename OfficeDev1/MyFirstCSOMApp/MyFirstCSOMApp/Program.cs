@@ -17,14 +17,8 @@ namespace MyFirstCSOMApp
               using (ClientContext ctx = LogInAsApp())
             {
 
-                ctx.Load(ctx.Web);
-                ctx.Load(ctx.Web.CurrentUser);
 
-                ctx.ExecuteQuery();
-
-                Console.WriteLine(ctx.Web.Title);
-                Console.WriteLine(ctx.Web.CurrentUser.Title);
-
+                Fields.CreateField(ctx);
 
                 //Basics.WebOperations(ctx);
                 //Basics.GetAllContentTypes(ctx);
