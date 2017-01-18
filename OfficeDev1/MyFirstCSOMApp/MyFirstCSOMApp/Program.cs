@@ -23,7 +23,7 @@ namespace MyFirstCSOMApp
             }
 
 
-            using (ClientContext ctx = new ClientContext("https://zalodev.sharepoint.com"))
+            using (ClientContext ctx = new ClientContext("https://zalodev.sharepoint.com/sites/OD1"))
             {
                 
                 ctx.Credentials = new SharePointOnlineCredentials(userName, securePassword);
@@ -31,7 +31,9 @@ namespace MyFirstCSOMApp
                 //Basics.WebOperations(ctx);
                 //Basics.GetAllContentTypes(ctx);
 
-                ClassAssignments.ShowAllItemTitlesInAList(ctx, "Books");
+
+
+                ClassAssignments.ChangeMasterPage(ctx);
                     
                 Console.WriteLine("Press enter to continue");
                 Console.ReadLine();

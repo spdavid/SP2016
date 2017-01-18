@@ -1,4 +1,5 @@
 ﻿using Microsoft.SharePoint.Client;
+using OfficeDevPnP.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -74,5 +75,88 @@ namespace MyFirstCSOMApp.CSOM
         }
 
 
+        public static void CreateSubSite(ClientContext ctx, string title, string Url)
+        {
+
+            // pnp Version
+            //SiteEntity siteInfo = new SiteEntity();
+            //siteInfo.Lcid = 1033;
+            //siteInfo.Title = title;
+            //siteInfo.Url = Url;
+
+            //ctx.Web.CreateWeb(siteInfo, true, true);
+
+
+            // sharepoint client object model version
+            WebCreationInformation webInfo = new WebCreationInformation();
+            webInfo.Language = 1033;
+            webInfo.Title = title;
+            webInfo.Url = Url;
+            webInfo.UseSamePermissionsAsParentSite = true;
+            webInfo.WebTemplate = "STS#0";
+            ctx.Web.Webs.Add(webInfo);
+
+            ctx.ExecuteQuery();
+
+
         }
+
+
+        public static void ShowCurrentUser(ClientContext ctx)
+        {
+            User user = ctx.Web.CurrentUser;
+
+            ctx.Load(user, u => u.Title);
+            ctx.ExecuteQuery();
+
+
+            Console.WriteLine(user.Title);
+
+
+        }
+
+        public static void SHowSubSites(ClientContext ctx)
+        {
+            ctx.Load(ctx.Web.Webs, webs => webs.Include(w => w.Title));
+            ctx.ExecuteQuery();
+
+            foreach (Web web in ctx.Web.Webs)
+            {
+                Console.WriteLine(web.Title);
+            }
+        }
+        public static void ChangeMasterPage(ClientContext ctx)
+        {
+            ctx.Load(ctx.Web);
+            ctx.Load(ctx.Site);
+            ctx.ExecuteQuery();
+
+            string newMasterUrl = "";
+            
+            if (ctx.Web.MasterUrl.Contains("oslo"))
+            {
+                newMasterUrl = ctx.Web.ServerRelativeUrl + "/_catalogs/masterpage/seattle.master";
+
+
+            }
+            else
+            {
+                newMasterUrl = ctx.Web.ServerRelativeUrl + "/_catalogs/masterpage/oslo.master";
+                
+            }
+
+            ctx.Web.MasterUrl = newMasterUrl;
+            ctx.Web.CustomMasterUrl = newMasterUrl;
+            ctx.Web.Update();
+            ctx.ExecuteQuery();
+
+            
+            Console.WriteLine();
+            Console.WriteLine(ctx.Web.MasterUrl);
+            Console.WriteLine(ctx.Web.CustomMasterUrl);
+            
+        }
+
+
+    }
 }
