@@ -159,6 +159,7 @@
   <ItemGroup>
     <Compile Include="CSOM\Basics.cs" />
     <Compile Include="CSOM\ClassAssignments.cs" />
+    <Compile Include="CSOM\ContentTypes.cs" />
     <Compile Include="CSOM\Fields.cs" />
     <Compile Include="Helpers\ContextHelper.cs" />
     <Compile Include="Program.cs" />

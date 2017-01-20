@@ -18,8 +18,8 @@ namespace MyFirstCSOMApp
             {
 
 
-                Fields.CreateField(ctx);
-
+             //  Fields.CreateField(ctx);
+                ContentTypes.MyFirstContentType(ctx);
                 //Basics.WebOperations(ctx);
                 //Basics.GetAllContentTypes(ctx);
                 //ClassAssignments.CreateList(ctx);
