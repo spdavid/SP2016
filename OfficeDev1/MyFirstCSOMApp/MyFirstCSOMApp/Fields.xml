@@ -52,7 +52,14 @@
       <!--Important_Choice-->
       <FieldRef ID="{D443E51B-1609-4CE6-96BD-9FCEA3FDE329}" Required="True"/>
     </FieldRefs>
-  </ContentType>  
-  
-  
+  </ContentType>
+
+  <ContentType ID="0x01010099BC412633C046FBBC0945BCED972B4500C24221340A004FED907678AC7FF51FBE"
+              Name="MyCoolDocument2"
+              Description="Hello ct"
+              Group="Custom Content Type">
+    <FieldRefs>
+    </FieldRefs>
+  </ContentType>
+
 </Info>

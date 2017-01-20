@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Content>
+  
+  <!--Fields-->
+  <Field ID="{4CF75117-09E4-4519-9094-8F2FC07E4745}"
+         StaticName="OD1_BookType"
+         Name="OD1_BookType"
+         Type="MultiChoice"
+         DisplayName="Book Type"
+         Required="FALSE"
+         EnforceUniqueValues="FALSE"
+         Indexed="FALSE"
+         FillInChoice="FALSE"
+         Group="Books Assignment Fields"
+         >
+    <Default>
+      Fantasy
+    </Default>
+    <CHOICES>
+      <CHOICE>
+        Fantasy
+      </CHOICE>
+      <CHOICE>
+        Romance
+      </CHOICE>
+      <CHOICE>
+        Sci-fi
+      </CHOICE>
+    </CHOICES>
+  </Field>
+
+  <Field ID="{FC163F6A-FB71-4F75-9BCE-0B535D80F9C3}" 
+         StaticName="OD1_Author" 
+         Name="OD1_Author" 
+         Type="Text" 
+         DisplayName="Author" 
+         Required="FALSE" 
+         EnforceUniqueValues="FALSE" 
+         Indexed="FALSE" 
+         MaxLength="255" 
+         Group="Books Assignment Fields" />
+
+  <Field ID='{790B5D57-9D52-4AFB-9797-82113E99C923}'
+        StaticName='OD1_ReleaseDate'
+        Name='OD2_ReleaseDate'
+       Type='DateTime'
+        DisplayName='Release Date'
+        Required='TRUE'
+        EnforceUniqueValues='FALSE'
+        Indexed='FALSE'
+        Format='DateTime'
+        Group='Books Assignment Fields'
+          >
+    <Default>
+      [today]
+    </Default>
+  </Field>
+
+  <Field ID="{3458E82B-78D6-451F-9BAA-527FD8967D02}" 
+         StaticName="OD1_Description" 
+         Name="OD1_Description" 
+         Type="Note" 
+         DisplayName="Description" 
+         Required="TRUE" 
+         EnforceUniqueValues="FALSE" 
+         Indexed="FALSE" 
+         NumLines="4" 
+         RichText="TRUE" 
+         RichTextMode="FullHtml" 
+         IsolateStyles="TRUE" 
+         Sortable="FALSE" 
+         Group="Books Assignment Fields"  />
+
+  <!--Content Types-->
+
+  <ContentType ID="0x0100874037AC061A41C68702C49D5C7BED9B"
+              Name="Book"
+              Description="My Book Ct"
+              Group="Books Assignment Content Types">
+    <FieldRefs>
+      <!--Book Type-->
+      <FieldRef ID="{4CF75117-09E4-4519-9094-8F2FC07E4745}" Required="True"/>
+      <!--Author-->
+      <FieldRef ID="{FC163F6A-FB71-4F75-9BCE-0B535D80F9C3}" Required="True"/>
+      <!--Release date-->
+      <FieldRef ID="{790B5D57-9D52-4AFB-9797-82113E99C923}" Required="True"/>
+      <!--Important_Person-->
+      <FieldRef ID="{3458E82B-78D6-451F-9BAA-527FD8967D02}" Required="True"/>
+    </FieldRefs>
+  </ContentType>
+
+
+
+</Content>

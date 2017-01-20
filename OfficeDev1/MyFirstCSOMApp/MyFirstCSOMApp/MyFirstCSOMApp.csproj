@@ -158,6 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CSOM\Basics.cs" />
+    <Compile Include="CSOM\BooksAssignment.cs" />
     <Compile Include="CSOM\ClassAssignments.cs" />
     <Compile Include="CSOM\ContentTypes.cs" />
     <Compile Include="CSOM\Fields.cs" />
@@ -172,6 +173,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BooksCtFields.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Fields.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

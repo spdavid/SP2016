@@ -18,12 +18,12 @@ namespace MyFirstCSOMApp
             {
 
 
-             //  Fields.CreateField(ctx);
-                ContentTypes.MyFirstContentType(ctx);
+                //  Fields.CreateField(ctx);
+                //ContentTypes.MyFirstContentType(ctx);
                 //Basics.WebOperations(ctx);
                 //Basics.GetAllContentTypes(ctx);
                 //ClassAssignments.CreateList(ctx);
-
+                BooksAssignment.CreateContent(ctx);
                 Console.WriteLine("Press enter to continue");
                 Console.ReadLine();
             }
