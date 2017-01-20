@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Fields>
-
+<Info>
+  
   <Field ID="{388F3ECA-394F-4257-802C-92A4427D0EF0}" 
          StaticName="Important_Person" 
          Name="Important_Person"
@@ -41,5 +41,18 @@
       </CHOICE>
     </CHOICES>
   </Field>
+
+  <ContentType ID="0x01010099BC412633C046FBBC0945BCED972B45" 
+               Name="MyCoolDocument"
+               Description="Hello ct"
+               Group="Custom Content Type">
+    <FieldRefs>
+      <!--Important_Person-->
+      <FieldRef ID="{388F3ECA-394F-4257-802C-92A4427D0EF0}" Required="True"/>
+      <!--Important_Choice-->
+      <FieldRef ID="{D443E51B-1609-4CE6-96BD-9FCEA3FDE329}" Required="True"/>
+    </FieldRefs>
+  </ContentType>  
   
-</Fields>
+  
+</Info>

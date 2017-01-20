@@ -39,7 +39,10 @@ namespace MyFirstCSOMApp.CSOM
             myNewContentType.AddFieldById(new Guid("{D443E51B-1609-4CE6-96BD-9FCEA3FDE329}"), false, false);
 
 
+            //root.CreateContentType("AnotherCT", "0x010067DAF351B3314A4DB1391A903CBC82F8", "Custom Content Type");
 
+            string pathToXML = AppDomain.CurrentDomain.BaseDirectory + "fields.xml";
+            root.CreateContentTypeFromXMLFile(pathToXML);
 
         }
 
