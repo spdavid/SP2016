@@ -9,7 +9,7 @@ namespace MyFirstCSOMApp.CSOM
 {
     public class CAMLFun
     {
-        public static void GetAllFantasyBooks(ClientContext ctx)
+        public static ListItemCollection GetAllFantasyBooks(ClientContext ctx)
         {
            List booksList =  ctx.Web.GetListByUrl("Lists/books");
 
@@ -31,6 +31,10 @@ namespace MyFirstCSOMApp.CSOM
                     </Query> 
                      <ViewFields><FieldRef Name='Title' />
                         <FieldRef Name='Author' />
+                        <FieldRef Name='OD1_BookType' />
+                        <FieldRef Name='OD2_ReleaseDate' />
+                        <FieldRef Name='OD1_Description' />
+                        <FieldRef Name='OD1_Author' />
                     </ViewFields> 
                     <RowLimit>10</RowLimit> 
               </View>";
@@ -47,6 +51,64 @@ namespace MyFirstCSOMApp.CSOM
                 Console.WriteLine(item["Title"]);
             }
 
+            return items;
+
         }
+
+        public static void GetSpecificBookType(ClientContext ctx)
+        {
+            List booksList = ctx.Web.GetListByUrl("Lists/books");
+
+            // gets all items in the list
+            // CamlQuery query = CamlQuery.CreateAllItemsQuery();
+            CamlQuery query = new CamlQuery();
+            query.ViewXml =
+              @"<View>
+    <ViewFields>
+        <FieldRef Name='Title' />
+        <FieldRef Name='OD1_Author' />
+    </ViewFields>
+    <Query>
+        <Where>
+            <And>
+                <Eq>
+                    <FieldRef Name='OD1_Author' />
+                    <Value Type='Text'>Jenny</Value>
+                </Eq>
+                <And>
+                    <Gt>
+                        <FieldRef Name='OD2_ReleaseDate' />
+                        <Value Type='DateTime'>2017-01-01</Value>
+                    </Gt>
+                    <Or>
+                        <Eq>
+                            <FieldRef Name='OD1_BookType' />
+                            <Value Type='Text'>Sci-fi</Value>
+                        </Eq>
+                        <Eq>
+                            <FieldRef Name='OD1_BookType' />
+                            <Value Type='Text'>Fantasy</Value>
+                        </Eq>
+                    </Or>
+                </And>
+            </And>
+        </Where>
+    </Query>
+</View>";
+
+
+            ListItemCollection items = booksList.GetItems(query);
+
+            //ctx.Load(items, itms => itms.Include(i=>i["Title"], i=>i["Author"])); // ca 2 seconds
+            ctx.Load(items); // ca 4 seconds
+            ctx.ExecuteQueryRetry();
+
+            foreach (ListItem item in items)
+            {
+                Console.WriteLine(item["Title"]);
+            }
+
+        }
+
     }
 }

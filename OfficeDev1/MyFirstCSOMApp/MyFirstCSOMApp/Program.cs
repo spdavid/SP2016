@@ -16,16 +16,14 @@ namespace MyFirstCSOMApp
             //  using (ClientContext ctx = LogInAsUser())
               using (ClientContext ctx = LogInAsApp())
             {
-
-
-                //  Fields.CreateField(ctx);
+                //Fields.CreateField(ctx);
                 //ContentTypes.MyFirstContentType(ctx);
                 //Basics.WebOperations(ctx);
                 //Basics.GetAllContentTypes(ctx);
                 //ClassAssignments.CreateList(ctx);
-                //     BooksAssignment.CreateContent(ctx);
-                // CVAssignment.SetUp(ctx);
-                CAMLFun.GetAllFantasyBooks(ctx);
+                //BooksAssignment.CreateContent(ctx);
+                //CVAssignment.SetUp(ctx);
+                UpdatingListItems.UpdateFirstCV(ctx);
                 Console.WriteLine("Press enter to continue");
                 Console.ReadLine();
             }
