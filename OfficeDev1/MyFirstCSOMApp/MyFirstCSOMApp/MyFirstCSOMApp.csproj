@@ -159,8 +159,10 @@
   <ItemGroup>
     <Compile Include="CSOM\Basics.cs" />
     <Compile Include="CSOM\BooksAssignment.cs" />
+    <Compile Include="CSOM\CAMLFun.cs" />
     <Compile Include="CSOM\ClassAssignments.cs" />
     <Compile Include="CSOM\ContentTypes.cs" />
+    <Compile Include="CSOM\CVAssignment.cs" />
     <Compile Include="CSOM\Fields.cs" />
     <Compile Include="Helpers\ContextHelper.cs" />
     <Compile Include="Program.cs" />
@@ -177,6 +179,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ClientSecret.txt" />
+    <Content Include="CVContentType.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Fields.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

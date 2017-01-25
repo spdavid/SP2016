@@ -23,7 +23,9 @@ namespace MyFirstCSOMApp
                 //Basics.WebOperations(ctx);
                 //Basics.GetAllContentTypes(ctx);
                 //ClassAssignments.CreateList(ctx);
-                BooksAssignment.CreateContent(ctx);
+                //     BooksAssignment.CreateContent(ctx);
+                // CVAssignment.SetUp(ctx);
+                CAMLFun.GetAllFantasyBooks(ctx);
                 Console.WriteLine("Press enter to continue");
                 Console.ReadLine();
             }

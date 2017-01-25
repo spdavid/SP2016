@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+
+<BooksContent>
+
+
+  <ContentType ID="0x010100AB7FF8CA829F41E09DE3C3C12912F3E9"
+              Name="CV"
+              Description="Cv for people"
+              Group="CV Content Types">
+    <FieldRefs>
+      <!--CV_Picture-->
+      <FieldRef ID="{064E9B4E-1C9A-4F01-ADD6-65098B718B0A}" Required="True"/>
+      <!--CV_Person-->
+      <FieldRef ID="{3200CB11-A9EC-42C1-AEE1-203E4EBC2527}" Required="True"/>
+      <!--CV_bool-->
+      <FieldRef ID="{EF9E26D8-B35F-48C2-AF0E-8CAFB32AA5C9}" Required="True"/>
+     </FieldRefs>
+  </ContentType>
+
+
+  <Field ID="{064E9B4E-1C9A-4F01-ADD6-65098B718B0A}"
+         StaticName="CV_Picture"
+         Name="CV_Picture"
+         Type="URL"
+         DisplayName="Picture"
+         Required="FALSE"
+         EnforceUniqueValues="FALSE"
+         Indexed="FALSE"
+         Format="Image"
+         Group="CV Columns"
+         />
+  <Field ID="{3200CB11-A9EC-42C1-AEE1-203E4EBC2527}"
+         StaticName="CV_Person"
+         Name="CV_person"
+         Type="User" 
+         DisplayName="User" 
+         List="UserInfo" 
+         Required="FALSE" 
+         EnforceUniqueValues="FALSE" 
+         ShowField="ImnName" 
+         UserSelectionMode="PeopleOnly" 
+         UserSelectionScope="0" 
+          Group="CV Columns"
+          
+          />
+  <Field ID="{EF9E26D8-B35F-48C2-AF0E-8CAFB32AA5C9}"
+         StaticName="CV_bool"
+         Name="CV_bool"
+         Type="Boolean" 
+         DisplayName="Is Active" 
+         EnforceUniqueValues="FALSE" 
+         Indexed="FALSE" 
+           Group="CV Columns"
+           >
+    <Default>
+      0
+    </Default>
+  </Field>
+
+</BooksContent>
