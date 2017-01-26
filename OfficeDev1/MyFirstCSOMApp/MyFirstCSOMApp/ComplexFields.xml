@@ -1,0 +1,67 @@
+﻿<content>
+  <Field  ID="{2BC50427-0E23-420F-A982-CBCC393E32CA}"
+         StaticName="OD1_Book"
+         Name="OD1_Book"
+         Type="Lookup"
+         DisplayName="Book try 2"
+         Required="FALSE"
+         EnforceUniqueValues="FALSE"
+         List="Lists/books"
+         Web=""
+         ShowField="Title"
+         UnlimitedLengthInDocumentLibrary="FALSE"
+         Group="Custom Columns"  />
+
+
+  <Field ID="{6010C819-6CC2-49F6-8056-0075E60FC45A}" 
+         Type="Note" 
+         DisplayName="Book Category xml" 
+         InternalName="OD1BookCat_Note"  
+         StaticName="OD1BookCat_Note"
+         Name="OD1BookCat_Note" 
+         ShowInViewForms="FALSE" 
+         Required="FALSE" 
+         Hidden="TRUE" 
+         CanToggleHidden="TRUE" />
+  <Field ID="{02AFB564-3E9A-482B-A121-6E288804D165}"
+         Type="TaxonomyFieldType"
+         Name="OD1BookCat"
+         InternalName="OD1BookCat"
+         DisplayName="Book cat xml"
+         Group="DÄH"
+         ShowField="Term1033"
+         AllowDeletion="TRUE"
+         Required="TRUE">
+    <Customization>
+      <ArrayOfProperty>
+        <Property>
+          <Name>SspId</Name>
+          <Value xmlns:q1="http://www.w3.org/2001/XMLSchema" 
+                 p4:type="q1:string" 
+                 xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">c1c6ee1053b84963929e0e91f9dbaa4a</Value>
+        </Property>
+        <Property>
+          <Name>TermSetId</Name>
+          <Value xmlns:q2="http://www.w3.org/2001/XMLSchema"
+                 p4:type="q2:string" 
+                 xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">{02806e1e-aeb7-4542-bf7e-0d1a3fdbc9d3}</Value>
+        </Property>
+        <Property>
+          <Name>TextField</Name>
+          <Value xmlns:q6="http://www.w3.org/2001/XMLSchema" 
+                 p4:type="q6:string"
+                 xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">{6010C819-6CC2-49F6-8056-0075E60FC45A}</Value>
+        </Property>
+        <Property>
+          <Name>IsPathRendered</Name>
+          <Value xmlns:q7="http://www.w3.org/2001/XMLSchema" p4:type="q7:boolean" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">false</Value>
+        </Property>
+        <Property>
+          <Name>IsKeyword</Name>
+          <Value xmlns:q8="http://www.w3.org/2001/XMLSchema" p4:type="q8:boolean" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">false</Value>
+        </Property>
+      </ArrayOfProperty>
+    </Customization>
+  </Field>
+
+</content>

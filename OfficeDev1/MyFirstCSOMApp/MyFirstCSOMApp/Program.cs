@@ -23,7 +23,8 @@ namespace MyFirstCSOMApp
                 //ClassAssignments.CreateList(ctx);
                 //BooksAssignment.CreateContent(ctx);
                 //CVAssignment.SetUp(ctx);
-                UpdatingListItems.UpdateFirstCV(ctx);
+                //   UpdatingListItems.UpdateFirstCV(ctx);
+                ComplexFields.SettingAndGettingFieldValues(ctx);
                 Console.WriteLine("Press enter to continue");
                 Console.ReadLine();
             }
