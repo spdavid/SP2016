@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<content>
+  <ContentType ID="0x01002312F6C11D9A41F3A3532FE936842C34"
+             Name="Important Issue"
+             Description="My Important Issue Ct"
+             Group="OD1 Content Types">
+    <FieldRefs>
+      <!--OD1_IssueDate-->
+      <FieldRef ID="{A3B49F4F-7628-49F5-B458-3870D5880EAD}" Required="True"/>
+      <!--OD1_Responsible-->
+      <FieldRef ID="{2C24DBB8-6597-45CC-A4ED-0792C6C90E0E}" Required="False"/>
+      <!--OD1_RelatedIssue-->
+      <FieldRef ID="{69A361A3-A03E-48DB-9740-C30BB67D2516}" Required="False"/>
+      <!--OD1_IssueCategory_Note-->
+      <FieldRef ID="{64CC7601-A01E-499F-9B08-04733015F332}" Required="False"/>
+      <!--OD1_IssueCategory-->
+      <FieldRef ID="{ED88551E-8F2D-4A2E-8DB0-3D9616C012B3}" Required="False"/>
+      <!--OD1_Notes-->
+      <FieldRef ID="{59B20EA9-13C9-4CE8-8B05-D7BA4AEF008E}" Required="False"/>
+    </FieldRefs>
+  </ContentType>
+
+  <Field ID='{A3B49F4F-7628-49F5-B458-3870D5880EAD}'
+         StaticName='OD1_IssueDate'
+         Name='OD1_IssueDate'
+         Type='DateTime'
+         DisplayName='Issue Date'
+         Required='TRUE'
+         EnforceUniqueValues='FALSE'
+         Indexed='FALSE'
+         Format='DateTime'
+         Group='Custom Columns'
+         >
+         <Default>
+           [today]
+         </Default>
+  </Field>
+  <Field ID="{2C24DBB8-6597-45CC-A4ED-0792C6C90E0E}"
+         StaticName="OD1_Responsible"
+         Name="OD1_Responsible"
+         Type="User"
+         DisplayName="Responsible"
+         List="UserInfo"
+         Required="FALSE"
+         EnforceUniqueValues="FALSE"
+         ShowField="ImnName"
+         UserSelectionMode="PeopleOnly"
+         UserSelectionScope="0"
+          Group="Custom Columns"
+          
+          />
+  <Field  ID="{69A361A3-A03E-48DB-9740-C30BB67D2516}"
+       StaticName="OD1_RelatedIssue"
+       Name="OD1_RelatedIssue"
+       Type="Lookup"
+       DisplayName="Related Issue"
+       Required="FALSE"
+       EnforceUniqueValues="FALSE"
+       List="Lists/importantissues"
+       Web=""
+       ShowField="Title"
+       UnlimitedLengthInDocumentLibrary="FALSE"
+       Group="Custom Columns"  />
+  <Field ID="{64CC7601-A01E-499F-9B08-04733015F332}"
+         Type="Note"
+         DisplayName="OD1_IssueCategory_Note"
+         StaticName="OD1_IssueCategory_Note"
+         Name="OD1_IssueCategory_Note"
+         ShowInViewForms="FALSE"
+         Required="FALSE"
+         Hidden="TRUE"
+         CanToggleHidden="TRUE" />
+  <Field ID="{ED88551E-8F2D-4A2E-8DB0-3D9616C012B3}"
+         Type="TaxonomyFieldType"
+         Name="OD1_IssueCategory"
+          StaticName="OD1_IssueCategory"
+         DisplayName="Issue Category"
+         ShowField="Term1033"
+         AllowDeletion="TRUE"
+         Required="TRUE">
+    <Customization>
+      <ArrayOfProperty>
+        <Property>
+          <Name>SspId</Name>
+          <Value xmlns:q1="http://www.w3.org/2001/XMLSchema"
+                 p4:type="q1:string"
+                 xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">c1c6ee1053b84963929e0e91f9dbaa4a</Value>
+        </Property>
+        <Property>
+          <Name>TermSetId</Name>
+          <Value xmlns:q2="http://www.w3.org/2001/XMLSchema"
+                 p4:type="q2:string"
+                 xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">{3D4C7DE0-3867-44C3-871A-C36DEC4E1970}</Value>
+        </Property>
+        <Property>
+          <Name>TextField</Name>
+          <Value xmlns:q6="http://www.w3.org/2001/XMLSchema"
+                 p4:type="q6:string"
+                 xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">{64CC7601-A01E-499F-9B08-04733015F332}</Value>
+        </Property>
+        <Property>
+          <Name>IsPathRendered</Name>
+          <Value xmlns:q7="http://www.w3.org/2001/XMLSchema" p4:type="q7:boolean" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">false</Value>
+        </Property>
+        <Property>
+          <Name>IsKeyword</Name>
+          <Value xmlns:q8="http://www.w3.org/2001/XMLSchema" p4:type="q8:boolean" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">false</Value>
+        </Property>
+      </ArrayOfProperty>
+    </Customization>
+  </Field>
+
+  <Field ID="{59B20EA9-13C9-4CE8-8B05-D7BA4AEF008E}"
+         StaticName="OD1_Notes"
+         Name="OD1_Notes"
+         Type="Note" 
+         DisplayName="Notes" 
+         Required="FALSE" 
+         EnforceUniqueValues="FALSE" 
+         Indexed="FALSE" 
+         UnlimitedLengthInDocumentLibrary="TRUE" 
+         NumLines="4" 
+         RichText="TRUE" 
+         RichTextMode="FullHtml" 
+         IsolateStyles="TRUE" 
+         Sortable="FALSE" 
+         Group="Custom Columns" 
+         ></Field>
+
+</content>

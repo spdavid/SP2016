@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<import>
+  <item>
+    <Title>Issue 1</Title>
+    <Date>2017-01-01</Date>
+    <Responsible>david@zalodev.com</Responsible>
+    <RelatedIssue></RelatedIssue>
+    <IssueCategory>Urgent</IssueCategory>
+    <Notes>some notes asssdff</Notes>
+  </item>
+  <item>
+    <Title>Issue 2</Title>
+    <Date>2017-01-01</Date>
+    <Responsible>david@zalodev.com</Responsible>
+    <RelatedIssue>Issue 1</RelatedIssue>
+    <IssueCategory>Low Priority</IssueCategory>
+    <Notes>some notes asdasd </Notes>
+  </item>
+  <item>
+    <Title>Issue 3</Title>
+    <Date>2017-01-01</Date>
+    <Responsible>david@zalodev.com</Responsible>
+    <RelatedIssue>Issue 2</RelatedIssue>
+    <IssueCategory>Just Right</IssueCategory>
+    <Notes>some notes asdf</Notes>
+  </item>
+</import>

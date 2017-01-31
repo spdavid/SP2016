@@ -24,7 +24,10 @@ namespace MyFirstCSOMApp
                 //BooksAssignment.CreateContent(ctx);
                 //CVAssignment.SetUp(ctx);
                 //   UpdatingListItems.UpdateFirstCV(ctx);
-                ComplexFields.SettingAndGettingFieldValues(ctx);
+                // ComplexFields.SettingAndGettingFieldValues(ctx);
+                // TaxonomyFun.CreateIssueCategoryTermSet(ctx);
+                // ComplexFields.GetFieldXml(ctx);
+                BiggerAssignment.ImportDocument(ctx);
                 Console.WriteLine("Press enter to continue");
                 Console.ReadLine();
             }

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Microsoft.SharePoint.Client.Taxonomy;
+using System.Windows.Forms;
 
 namespace MyFirstCSOMApp.CSOM
 {
@@ -147,6 +148,14 @@ namespace MyFirstCSOMApp.CSOM
 
 
 
+        }
+
+       
+        public static void GetFieldXml(ClientContext ctx, string InternalName = "xmultiline")
+        {
+          Field field =  ctx.Web.Fields.GetFieldByInternalName(InternalName);
+            Console.WriteLine(field.SchemaXml);
+         
         }
     }
 }

@@ -164,6 +164,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -173,6 +174,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CSOM\Basics.cs" />
+    <Compile Include="CSOM\BiggerAssignment.cs" />
     <Compile Include="CSOM\BooksAssignment.cs" />
     <Compile Include="CSOM\CAMLFun.cs" />
     <Compile Include="CSOM\ClassAssignments.cs" />
@@ -180,6 +182,7 @@
     <Compile Include="CSOM\ContentTypes.cs" />
     <Compile Include="CSOM\CVAssignment.cs" />
     <Compile Include="CSOM\Fields.cs" />
+    <Compile Include="CSOM\TaxonomyFun.cs" />
     <Compile Include="CSOM\UpdatingListItems.cs" />
     <Compile Include="Helpers\ContextHelper.cs" />
     <Compile Include="Program.cs" />
@@ -203,6 +206,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Fields.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Important Issue Content.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ImportantIssueImport.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
