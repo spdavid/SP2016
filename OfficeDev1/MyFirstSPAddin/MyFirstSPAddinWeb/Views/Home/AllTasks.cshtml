@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MyFirstSPAddinWeb.Models.SPTask>
+
+@{
+    ViewBag.Title = "AllTasks";
+}
+<h2>AllTasks</h2>
+<p>
+    @Html.ActionLink("Create New", "CreateTask")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaskDueDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssigedTo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @if (item.TaskDueDate != DateTime.MinValue)
+            {
+            @Html.DisplayFor(modelItem => item.TaskDueDate)
+            }
+         </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssigedTo)
+        </td>
+        
+    </tr>
+}
+
+</table>
