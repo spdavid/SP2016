@@ -18,6 +18,7 @@ namespace RemoteEventRecieversWeb.Services
         /// <returns>Holds information returned from the app event.</returns>
         public SPRemoteEventResult ProcessEvent(SPRemoteEventProperties properties)
         {
+
             SPRemoteEventResult result = new SPRemoteEventResult();
 
             using (ClientContext clientContext = TokenHelper.CreateAppEventClientContext(properties, useAppWeb: false))
