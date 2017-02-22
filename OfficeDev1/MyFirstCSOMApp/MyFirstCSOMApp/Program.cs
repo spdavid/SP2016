@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.SharePoint.Client;
 using System.Security;
 using MyFirstCSOMApp.CSOM;
+using OfficeDevPnP.Core.Entities;
+using Microsoft.SharePoint.Client.Taxonomy;
 
 namespace MyFirstCSOMApp
 {
@@ -27,7 +29,22 @@ namespace MyFirstCSOMApp
                 // ComplexFields.SettingAndGettingFieldValues(ctx);
                 // TaxonomyFun.CreateIssueCategoryTermSet(ctx);
                 // ComplexFields.GetFieldXml(ctx);
-                BiggerAssignment.ImportDocument(ctx);
+                //BiggerAssignment.ImportDocument(ctx);
+
+               TermStore store =  ctx.Site.GetDefaultSiteCollectionTermStore();
+                TermSet ts = store.GetTermSet("guid".ToGuid());
+                ctx.Load(ts);
+                ctx.ExecuteQuery();
+                
+                TaxonomyFieldCreationInformation taxInfo = new TaxonomyFieldCreationInformation();
+                taxInfo.Id = "{09B8D03A-4B8E-400B-98C2-A3EECFD4B818}".ToGuid();
+                taxInfo.InternalName = "taxfun";
+                taxInfo.TaxonomyItem = ts;
+                taxInfo.Group = "groupname";
+                taxInfo.DisplayName = "taxfun";
+                ctx.Web.CreateTaxonomyField(taxInfo);
+                
+
                 Console.WriteLine("Press enter to continue");
                 Console.ReadLine();
             }

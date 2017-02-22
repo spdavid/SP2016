@@ -15,6 +15,9 @@ namespace PutItAllTogetherWebJob.Helpers
         public static void Install(string WebUrl)
         {
             AddItemToLog(WebUrl, "App Installed event fired off " + DateTime.Now.ToString());
+
+
+
         }
 
 
