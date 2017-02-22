@@ -30,7 +30,7 @@ namespace MyFirstCustomActionWeb.Controllers
                     ViewBag.UserName = spUser.Title;
 
 
-                    Helpers.CustomActionHelper.AddCustomActionToListItem(clientContext);
+                    Helpers.CustomActionHelper.AddAddBirthdayAction(clientContext);
 
 
                
@@ -54,5 +54,47 @@ namespace MyFirstCustomActionWeb.Controllers
 
             return View();
         }
+
+
+        [SharePointContextFilter]
+        public ActionResult HaveBirthday(string SPHostUrl, string ListId, int? ItemId)
+        {
+            var spContext = SharePointContextProvider.Current.GetSharePointContext(HttpContext);
+
+            using (var ctx = spContext.CreateUserClientContextForSPHost())
+            {
+                if (ctx != null)
+                {
+                  List list =  ctx.Web.Lists.GetById(ListId.ToGuid());
+                  ListItem item =  list.GetItemById(ItemId.Value);
+
+                    ctx.Load(item, i => i["CUSTOM_AGE"]);
+                    ctx.Load(list, l => l.DefaultViewUrl);
+                    ctx.ExecuteQuery();
+
+                    if (item["CUSTOM_AGE"] != null)
+                    {
+                        int currentAge = int.Parse(item["CUSTOM_AGE"].ToString());
+
+                        currentAge++;
+
+                        item["CUSTOM_AGE"] = currentAge;
+                        item.SystemUpdate();
+                        ctx.ExecuteQuery();
+
+                    }
+
+                    Uri url = new Uri(SPHostUrl);
+
+                    string finalurl = url.Scheme + "://" + url.Authority;
+
+                    Response.Redirect(finalurl + list.DefaultViewUrl);
+
+                }
+            }
+
+                    return View();
+        }
+
     }
 }

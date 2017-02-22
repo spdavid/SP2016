@@ -30,6 +30,7 @@ namespace MyFirstCustomActionWeb.Helpers
         private static void DelectCustomActionFromList(ClientContext ctx, string name, List list)
         {
 
+
             var customActions = list.UserCustomActions;
             ctx.Load(customActions);
             ctx.ExecuteQuery();
@@ -37,9 +38,10 @@ namespace MyFirstCustomActionWeb.Helpers
             //todo.. loop backwards
             foreach (UserCustomAction ca in customActions)
             {
-                if (ca.Name == "clickmeAction")
+                if (ca.Name == name)
                 {
-                    ctx.Web.DeleteCustomAction(ca.Id);
+                    ca.DeleteObject();
+                    ctx.ExecuteQuery();
                 }
             }
         }
@@ -91,6 +93,41 @@ namespace MyFirstCustomActionWeb.Helpers
 
         }
 
+
+        public static void AddAddBirthdayAction(ClientContext ctx)
+        {
+            if (!ctx.Web.ListExists("Person"))
+            {
+                ctx.Web.CreateList(ListTemplateType.GenericList, "Person", false);
+            }
+
+            List list = ctx.Web.GetListByTitle("Person");
+
+           if (!list.FieldExistsById("{A7A83D5A-06C4-4EA0-94D4-831B74B2E077}"))
+            {
+                FieldCreationInformation fieldInfo = new FieldCreationInformation(FieldType.Number);
+                fieldInfo.Id = "{A7A83D5A-06C4-4EA0-94D4-831B74B2E077}".ToGuid();
+                fieldInfo.InternalName = "CUSTOM_AGE";
+                fieldInfo.DisplayName = "Current Age";
+                
+                list.CreateField(fieldInfo);
+            }
+
+            DelectCustomActionFromList(ctx, "AddAge", list);
+
+            ctx.Load(ctx.Web, w => w.Url);
+            ctx.ExecuteQuery();
+
+            UserCustomAction customAction = list.UserCustomActions.Add();
+            customAction.Name = "AddAge";
+            customAction.Location = "EditControlBlock";
+            customAction.Title = "Have birthday";
+            customAction.Url = "javascript:window.location = 'https://localhost:44363/home/HaveBirthday?SPHostUrl=" + ctx.Web.Url + "&listId={ListId}&itemid={ItemId}'";
+            customAction.Update();
+
+            ctx.ExecuteQuery();
+
+        }
 
 
 
