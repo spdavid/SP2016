@@ -157,5 +157,49 @@ namespace MyFirstCSOMApp.CSOM
             Console.WriteLine(field.SchemaXml);
          
         }
+
+
+        public static void HiddenReadOnlyFieldTest(ClientContext ctx)
+        {
+
+            ctx.Web.CreateField(@"<Field ID='{C856197C-044E-473A-BA9A-260BE311CA63}' 
+         StaticName='READONLYPNP' 
+         Name='READONLYPNP' 
+         Type='Text' 
+         DisplayName='READONLYPNP' 
+         Required='FALSE' 
+         EnforceUniqueValues='FALSE' 
+         Indexed='FALSE' 
+         MaxLength='255' 
+            ReadOnly='True'
+         Group='PNPTEST' />");
+
+
+            ctx.Web.CreateField(@"<Field ID='{12E64ABE-5A10-4C9A-A38C-A207214F36F0}' 
+         StaticName='HiddenPNP' 
+         Name='HiddenPNP' 
+         Type='Text' 
+         DisplayName='HiddenPNP' 
+         Required='FALSE' 
+         EnforceUniqueValues='FALSE' 
+         Indexed='FALSE' 
+         MaxLength='255' 
+            Hidden='True'
+         Group='PNPTEST' />");
+
+
+            ctx.Web.CreateField(@"<Field ID='{8B68573E-6607-46A6-B818-F02F5379953D}' 
+         StaticName='ShowInEditForm' 
+         Name='ShowInEditForm' 
+         Type='Text' 
+         DisplayName='ShowInEditForm' 
+         Required='FALSE' 
+         EnforceUniqueValues='FALSE' 
+         Indexed='FALSE' 
+         MaxLength='255' 
+         ShowInEditForm='FALSE'
+         Group='PNPTEST' />");
+
+        }
     }
 }
