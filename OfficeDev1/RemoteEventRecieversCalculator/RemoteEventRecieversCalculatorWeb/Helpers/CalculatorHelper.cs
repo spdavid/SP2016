@@ -27,11 +27,12 @@ namespace RemoteEventRecieversCalculatorWeb.Helpers
             }
 
             string pathToXML = AppDomain.CurrentDomain.BaseDirectory + @"\SPContent\Fields.xml";
-            XDocument doc = XDocument.Load(pathToXML);
 
-            ctx.Web.CreateFieldsFromXMLFile(pathToXML);
-            ctx.Web.CreateContentTypeFromXMLFile(pathToXML);
+            ctx.Site.RootWeb.CreateFieldsFromXMLFile(pathToXML);
+            ctx.Site.RootWeb.CreateContentTypeFromXMLFile(pathToXML);
 
+            calculatorList.AddContentTypeToListById("0x01002B999C32793148858FE620188A8353AC", true, true);
+            calculatorList.RemoveContentTypeByName("Item");
 
         }
 
