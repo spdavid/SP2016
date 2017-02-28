@@ -70,6 +70,7 @@ namespace RemoteEventRecieversCalculatorWeb.Services
                 if (clientContext != null)
                 {
                     // Helpers.CalculatorHelper.RemoveCalculator(clientContext);
+                    Helpers.CalculatorHelper.RemoveRemoteEventReciver(clientContext);
                 }
             }
         }
@@ -81,7 +82,7 @@ namespace RemoteEventRecieversCalculatorWeb.Services
             {
                 if (clientContext != null)
                 {
-                   
+                    Helpers.CalculatorHelper.DoCalculation(clientContext, properties.ItemEventProperties.ListItemId);
                 }
             }
         }

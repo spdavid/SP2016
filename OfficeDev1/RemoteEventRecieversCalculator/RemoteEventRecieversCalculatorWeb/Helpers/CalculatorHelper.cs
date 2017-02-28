@@ -56,7 +56,16 @@ namespace RemoteEventRecieversCalculatorWeb.Helpers
         {
             string urlToWebService = GetWebServiceUrl();
             List list = ctx.Web.GetListByTitle("Calculator");
-            list.AddRemoteEventReceiver("Added", urlToWebService, EventReceiverType.ItemAdded, EventReceiverSynchronization.Synchronous, true);
+            list.AddRemoteEventReceiver("Added355", urlToWebService, EventReceiverType.ItemAdded, EventReceiverSynchronization.Synchronous, true);
+
+        }
+
+        internal static void RemoveRemoteEventReciver(ClientContext ctx)
+        {
+          
+            List list = ctx.Web.GetListByTitle("Calculator");
+            list.GetEventReceiverByName("Added355").DeleteObject();
+            ctx.ExecuteQuery();
 
         }
 
@@ -74,7 +83,7 @@ namespace RemoteEventRecieversCalculatorWeb.Helpers
             string operation = item["OD1_MathOperator"].ToString();
 
             int result = 0;
-            if (operation == "+")
+            if (operation == "Plus")
             {
                 result = Amount1 + Amount2;
             }
