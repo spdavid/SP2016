@@ -25,7 +25,7 @@
   <Field ID="{27D65E4C-DE0D-478C-9118-4ED6413953E1}"
          StaticName="OD1_MathOperator"
          Name="OD1_MathOperator"
-         Type="MultiChoice"
+         Type="Choice"
          DisplayName="Operator"
          Required="FALSE"
          EnforceUniqueValues="FALSE"

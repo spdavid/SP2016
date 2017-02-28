@@ -18,21 +18,21 @@ namespace RemoteEventRecieversCalculatorWeb.Services
         {
             SPRemoteEventResult result = new SPRemoteEventResult();
 
-            using (ClientContext clientContext = TokenHelper.CreateAppEventClientContext(properties, useAppWeb: false))
+            switch (properties.EventType)
             {
-                if (clientContext != null)
-                {
-                    clientContext.Load(clientContext.Web);
-                    clientContext.ExecuteQuery();
-
-                    clientContext.Web.Title = "Hello from David";
-                    clientContext.Web.Update();
-                    clientContext.ExecuteQuery();
-
-                    Helpers.CalculatorHelper.SetUpCalculator(clientContext);
-
-                }
+                case SPRemoteEventType.ItemAdded:
+                    ItemAdded(properties);
+                    break;
+                case SPRemoteEventType.AppInstalled:
+                    Install(properties);
+                    break;
+                case SPRemoteEventType.AppUninstalling:
+                    UnInstall(properties);
+                    break;
+                default:
+                    break;
             }
+
 
             return result;
         }
@@ -45,6 +45,47 @@ namespace RemoteEventRecieversCalculatorWeb.Services
         {
             throw new NotImplementedException();
         }
+
+
+        static void Install(SPRemoteEventProperties properties)
+        {
+            //CreateAppEventClientContext used for install and uninstall events
+
+            using (ClientContext clientContext = TokenHelper.CreateAppEventClientContext(properties, useAppWeb: false))
+            {
+                if (clientContext != null)
+                {
+                    Helpers.CalculatorHelper.SetUpCalculator(clientContext);
+                    Helpers.CalculatorHelper.SetUpRemoteEventReciver(clientContext);
+                }
+            }
+        }
+
+        static void UnInstall(SPRemoteEventProperties properties)
+        {
+            //CreateAppEventClientContext used for install and uninstall events
+
+            using (ClientContext clientContext = TokenHelper.CreateAppEventClientContext(properties, useAppWeb: false))
+            {
+                if (clientContext != null)
+                {
+                    // Helpers.CalculatorHelper.RemoveCalculator(clientContext);
+                }
+            }
+        }
+
+        static void ItemAdded(SPRemoteEventProperties properties)
+        {
+            // CreateRemoteEventReceiverClientContext used for everything else except appinstalled and uninstalled events
+            using (ClientContext clientContext = TokenHelper.CreateRemoteEventReceiverClientContext(properties))
+            {
+                if (clientContext != null)
+                {
+                   
+                }
+            }
+        }
+
 
     }
 }
