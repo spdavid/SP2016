@@ -1,0 +1,6 @@
+<Items>
+        <Candy Title="Sucker" Type="Sucker" Color="Green" Description="asdfasdf" ></Candy>
+        <Candy Title="Sucker2" Type="Sour" Color="Blue" Description="asdfasdf" ></Candy>
+        <Candy Title="Sucker3" Type="Hard" Color="Red" Description="asdfasdf" ></Candy>
+        <Candy Title="Sucker4" Type="Sucker" Color="Green" Description="asdfasdf" ></Candy>
+</Items>
