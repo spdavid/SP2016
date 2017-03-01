@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Content>
+
+  <!--Content Types-->
+
+  <ContentType ID="0x01002B999C32793148858FE620188A8353AC"
+              Name="Calculator"
+              Description=""
+              Group="MATH Content Types">
+    <FieldRefs>
+      <!--Amount 1-->
+      <FieldRef ID="{56862B15-43DB-4CB6-AD22-201571D6901E}" Required="True"/>
+      <!--Operator-->
+      <FieldRef ID="{27D65E4C-DE0D-478C-9118-4ED6413953E1}" Required="True"/>
+      <!-- Amount 2 -->
+      <FieldRef ID="{C0E840D8-6D38-4E1E-A6E1-1931D5E303D4}" Required="True"/>
+      <!-- Result -->
+      <FieldRef ID="{9DB9A3B6-75C9-44EE-BF24-F2CD7A897CB8}" Required="False"/>
+    </FieldRefs>
+  </ContentType>
+
+
+  <!--Fields-->
+  <Field ID="{27D65E4C-DE0D-478C-9118-4ED6413953E1}"
+         StaticName="OD1_MathOperator"
+         Name="OD1_MathOperator"
+         Type="Choice"
+         DisplayName="Operator"
+         Required="FALSE"
+         EnforceUniqueValues="FALSE"
+         Indexed="FALSE"
+         FillInChoice="FALSE"
+         Group="MATH"
+         >
+    <Default>
+      Plus
+    </Default>
+    <CHOICES>
+      <CHOICE>
+        Plus
+      </CHOICE>
+      <CHOICE>
+        Minus
+      </CHOICE>
+    </CHOICES>
+  </Field>
+
+  <Field  ID="{56862B15-43DB-4CB6-AD22-201571D6901E}"
+        StaticName="OD1_Amount1"
+        Name="OD1_Amount1"
+        Type="Number"
+        DisplayName="Amount1"
+        Required="TRUE"
+        EnforceUniqueValues="FALSE"
+        Indexed="FALSE"
+        Group="MATH"
+        />
+
+
+    <Field  ID="{C0E840D8-6D38-4E1E-A6E1-1931D5E303D4}"
+        StaticName="OD1_Amount2"
+        Name="OD1_Amount2"
+        Type="Number"
+        DisplayName="Amount 2"
+        Required="TRUE"
+        EnforceUniqueValues="FALSE"
+        Indexed="FALSE"
+        Group="MATH"
+        />
+
+  <Field  ID="{9DB9A3B6-75C9-44EE-BF24-F2CD7A897CB8}"
+       StaticName="OD1_Result"
+       Name="OD1_Result"
+       Type="Number"
+       DisplayName="Result"
+       Required="TRUE"
+       EnforceUniqueValues="FALSE"
+       Indexed="FALSE"
+       Group="MATH"
+       ShowInNewForm="FALSE"
+       ShowInEditForm="FALSE"
+        />
+
+
+
+  
+
+
+
+</Content>
