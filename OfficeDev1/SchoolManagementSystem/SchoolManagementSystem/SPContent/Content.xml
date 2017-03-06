@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Content>
+  <!--Content Types-->
+
+  <ContentType ID="0x01006B576958E372449AAB908BF3AC31E670"
+              Name="School"
+              Description=""
+              Group="School">
+    <FieldRefs>
+      <FieldRef ID="{D981D63D-D7A4-4E54-8051-9DBF60B2A9C7}" />
+      <FieldRef ID="{B416386F-58A8-4FA0-B727-672E427D3E29}" />
+      <FieldRef ID="{EBEDC568-C97F-428A-99E5-C72CCBEA7EF9}" />
+      <FieldRef ID="{0BE16DE3-0E7F-45DF-B0BC-A24BA3BF4907}" />
+    </FieldRefs>
+  </ContentType>
+
+  <!--Content Types-->
+
+  <ContentType ID="0x010039C7EADAA0B6403395AFA4381A477D50"
+              Name="Student"
+             Description=""
+              Group="School">
+    <FieldRefs>
+      <FieldRef ID="{B416386F-58A8-4FA0-B727-672E427D3E29}" />
+      <FieldRef ID="{6C6E5427-9AFB-4417-B885-07727162444F}" />
+      <FieldRef ID="{6D9CF114-04FB-4C91-BF6E-C45770B48A2A}" />
+      <FieldRef ID="{D5E2474E-7C84-4E06-B18D-BCCF094CB12E}" />
+    </FieldRefs>
+  </ContentType>
+
+
+
+
+
+  <Field ID="{B416386F-58A8-4FA0-B727-672E427D3E29}"
+           StaticName="School_Address"
+           Name="School_Address"
+           Type="Text"
+           DisplayName="Author"
+           Required="FALSE"
+           EnforceUniqueValues="FALSE"
+           Indexed="FALSE"
+           MaxLength="255"
+           Group="School" />
+
+  <Field ID="{EBEDC568-C97F-428A-99E5-C72CCBEA7EF9}"
+         StaticName="School_Phone"
+         Name="School_Phone"
+         Type="Number"
+         DisplayName="Phone"
+         Required="FALSE"
+         EnforceUniqueValues="FALSE"
+         Indexed="FALSE"
+         Group="School" />
+
+  <Field ID="{0BE16DE3-0E7F-45DF-B0BC-A24BA3BF4907}"
+       StaticName="School_StudAmt"
+       Name="School_StudAmt"
+       Type="Number"
+       DisplayName="Amount of students"
+       Required="FALSE"
+       EnforceUniqueValues="FALSE"
+       Indexed="FALSE"
+       ShowInEditForm="FALSE"
+       ShowInNewForm="FALSE"
+       Group="School" >
+    <Default>0</Default>
+  </Field>
+
+  <Field ID="{D981D63D-D7A4-4E54-8051-9DBF60B2A9C7}"
+        StaticName="School_Picture"
+        Name="School_Picture"
+        Type="URL"
+        DisplayName="Picture"
+        Required="FALSE"
+        EnforceUniqueValues="FALSE"
+        Indexed="FALSE"
+        Format="Image"
+        Group="School"  />
+
+
+
+  <Field ID="{6C6E5427-9AFB-4417-B885-07727162444F}"
+          Type="Note"
+          DisplayName="HiddenFavColor0"
+          InternalName="School_FavColor0"
+          StaticName="School_FavColor0"
+          Name="School_FavColor0"
+          ShowInViewForms="FALSE"
+          Required="FALSE"
+          Hidden="TRUE"
+          CanToggleHidden="TRUE"
+           Group="School"
+         />
+  <Field ID="{6D9CF114-04FB-4C91-BF6E-C45770B48A2A}"
+         Type="TaxonomyFieldType"
+         Name="School_FavColor"
+         InternalName="School_FavColor"
+         DisplayName="Favorite Color"
+         Group="School"
+         ShowField="Term1033"
+         AllowDeletion="TRUE"
+         Required="TRUE">
+    <Customization>
+      <ArrayOfProperty>
+        <Property>
+          <Name>SspId</Name>
+          <Value xmlns:q1="http://www.w3.org/2001/XMLSchema"
+                 p4:type="q1:string"
+                 xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">379a95d73eda489dbaaa48af98230a87</Value>
+        </Property>
+        <Property>
+          <Name>TermSetId</Name>
+          <Value xmlns:q2="http://www.w3.org/2001/XMLSchema"
+                 p4:type="q2:string"
+                 xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">{3d4c7de0-3867-44c3-871a-c36dec4e1970}</Value>
+        </Property>
+        <Property>
+          <Name>TextField</Name>
+          <Value xmlns:q6="http://www.w3.org/2001/XMLSchema"
+                 p4:type="q6:string"
+                 xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">{6C6E5427-9AFB-4417-B885-07727162444F}</Value>
+        </Property>
+        <Property>
+          <Name>IsPathRendered</Name>
+          <Value xmlns:q7="http://www.w3.org/2001/XMLSchema" p4:type="q7:boolean" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">false</Value>
+        </Property>
+        <Property>
+          <Name>IsKeyword</Name>
+          <Value xmlns:q8="http://www.w3.org/2001/XMLSchema" p4:type="q8:boolean" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">false</Value>
+        </Property>
+      </ArrayOfProperty>
+    </Customization>
+  </Field>
+
+
+  <Field  ID="{D5E2474E-7C84-4E06-B18D-BCCF094CB12E}"
+       StaticName="School_School"
+       Name="School_School"
+       Type="Lookup"
+       DisplayName="School"
+       Required="FALSE"
+       EnforceUniqueValues="FALSE"
+       List="Lists/Schools"
+       Web=""
+       ShowField="Title"
+       UnlimitedLengthInDocumentLibrary="FALSE"
+       Group="School"  />
+
+
+</Content>
+
