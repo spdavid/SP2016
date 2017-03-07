@@ -1,0 +1,11 @@
+﻿@model List<Microsoft.SharePoint.Client.List>
+@{
+    ViewBag.Title = "ShowAllLists";
+}
+
+<h2>ShowAllLists</h2>
+
+@foreach (var list in Model)
+{
+<div><a href="@(ViewBag.SPHostUrl + list.DefaultViewUrl)">@list.Title</a></div>
+}
