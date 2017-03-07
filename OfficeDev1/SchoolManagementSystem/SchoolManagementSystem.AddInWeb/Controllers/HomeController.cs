@@ -52,11 +52,40 @@ namespace SchoolManagementSystem.AddInWeb.Controllers
                     return View();
         }
 
+        [SharePointContextFilter]
         public ActionResult NewStudent(string SPHostUrl, int SchoolId)
         {
-          ViewBag.TaxItems = SchoolHelper.getTaxItems()
+            var spContext = SharePointContextProvider.Current.GetSharePointContext(HttpContext);
 
+            using (var clientContext = spContext.CreateUserClientContextForSPHost())
+            {
+                if (clientContext != null)
+                {
+                    ViewBag.TaxItems = SchoolHelper.getTaxItems(clientContext);
+
+                    return View();
+                }
+            }
             return View();
         }
-    }
+
+        [HttpPost]
+        public ActionResult NewStudent(string SPHostUrl, int SchoolId, Student student)
+        {
+            var spContext = SharePointContextProvider.Current.GetSharePointContext(HttpContext);
+
+            using (var ctx = spContext.CreateUserClientContextForSPHost())
+            {
+                if (ctx != null)
+                {
+
+                    SchoolHelper.SaveStudent(ctx, student);
+                    SchoolHelper.UpdateAmountOfStudents(ctx, SchoolId);
+                   return RedirectToAction("School", new { SPHostUrl = SPHostUrl, itemId = SchoolId });
+                 //  return View();
+                }
+            }
+          return View();
+        }
+        }
 }
