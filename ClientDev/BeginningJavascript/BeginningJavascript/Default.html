@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="Scripts/Main.js"></script>
+    <script> 
+        // IFFE
+        (function () {
+            function aFunction() {
+                console.log("hey");
+            }
+        })();
+     
+        
+    </script>
+</head>
+<body>
+    <div id="myDiv"></div>
+    <input type="button" id="mybutton" onclick="ButtonClick()" value="Press Me" />
+    <input type="button" id="mybutton2"  value="Press Me 2" />
+    <input type="text" id="sometext" /> 
+</body>
+</html>
