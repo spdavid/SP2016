@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="Scripts/HockeyPlayer.js"></script>
+    <script src="Scripts/Main.js"></script>
+    <script>
+        window.onload = function () {
+            console.log("onload");
+            var main = new OD1.Main();
+            main.SetUpPage();
+        }
+    </script>
+</head>
+<body>
+    <div>
+        Name <input type="text" id="Name" /> 
+    </div>
+    <div>
+        Age <input type="number" id="Age" />
+    </div>
+    <div>
+        Position <select id="position"></select>
+    </div>
+    <div>
+        ShirtNumber <input type="number" id="ShirtNumber" />
+    </div>
+    <input type="button" id="btnAddPlayer" value="Add Player" />
+
+    <div id="result"></div>
+</body>
+</html>
