@@ -66,6 +66,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.1.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -76,7 +78,13 @@
   <ItemGroup>
     <Content Include="Assignment1.html" />
     <Content Include="Default.html" />
+    <Content Include="JQuery.html" />
     <Content Include="Scripts\Assignment1.js" />
+    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.1.1.js" />
+    <Content Include="Scripts\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
     <Content Include="Scripts\Main.js" />
     <Content Include="Scripts\Utilties.js" />
     <Content Include="Web.config" />
