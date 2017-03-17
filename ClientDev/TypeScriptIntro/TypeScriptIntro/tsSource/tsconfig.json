@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "target": "es5",
+    "outFile": "../Scripts/yo.js"
+  },
+  "files": [
+    "../scripts/typings/jquery/jquery.d.ts",
+    "./Typescript1.ts",
+    "./Typescript2.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "wwwroot"
+  ]
+}

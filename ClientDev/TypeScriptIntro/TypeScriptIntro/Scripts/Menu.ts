@@ -98,8 +98,8 @@
 
             this.Render();
 
-        }
-
+        } 
+         
         private AddFoodCategories() {
             //var objValues = Object.keys(OD1.PlayerPosition).map(k => OD1.PlayerPosition[k]);  
             for (let item in FoodCategory) {
