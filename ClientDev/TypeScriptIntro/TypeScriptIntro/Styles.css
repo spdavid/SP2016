@@ -1,0 +1,31 @@
+﻿.menuItem
+{
+    float:left;
+    max-width:200px;
+    margin:10px;
+    background-color:lightgray;
+    border: 1px groove #000;
+    padding:5px;
+}
+
+.menuItem img{
+    width:100%;
+}
+
+    .menuItem .title {
+        font-weight: bold;
+        float: left;
+        width: 100%;
+    }
+
+    .menuItem .cost {
+        color: green;
+        float: left;
+        width: 50%;
+    }
+
+    .menuItem .category
+    {
+        float:left;
+        width:50%;
+    }

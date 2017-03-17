@@ -67,9 +67,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Menu.html" />
     <Content Include="packages.config" />
     <Content Include="Scripts\HockeyPlayer.js.map" />
     <Content Include="Scripts\Main.js.map" />
+    <Content Include="Scripts\Menu.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -81,6 +83,8 @@
     <Content Include="Home.html" />
     <Content Include="Scripts\HockeyPlayer.js" />
     <Content Include="Scripts\Main.js" />
+    <Content Include="Scripts\Menu.js" />
+    <Content Include="Styles.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +93,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\HockeyPlayer.ts" />
     <TypeScriptCompile Include="Scripts\Main.ts" />
+    <TypeScriptCompile Include="Scripts\Menu.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

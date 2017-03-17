@@ -31,7 +31,7 @@
         private AddEvents() {
             var button = document.getElementById("btnAddPlayer");
             var me = this;
-           // button.addEventListener("click", this.AddPlayer);
+            // button.addEventListener("click", this.AddPlayer);
             button.addEventListener("click", function () {
                 //this = button click
                 me.AddPlayer();
@@ -44,7 +44,7 @@
             var age = Number(this.AgeElement.value);
             var position = this.PositionElement.options[this.PositionElement.selectedIndex].textContent;
             var shirtNumber = Number(this.ShirtNumberElement.value);
-            
+
             var newPlayer = new HockeyPlayer(name, age, PlayerPosition[position], shirtNumber);
 
             this.Players.push(newPlayer);
@@ -64,7 +64,7 @@
                                     `;
             for (var i = 0; i < this.Players.length; i++) {
                 var player = this.Players[i];
-                table.innerHTML += 
+                table.innerHTML +=
                     `<tr>
                         <td>${player.Name}</td>
                         <td>${player.Age}</td>
@@ -72,6 +72,7 @@
                         <td>${player.ShirtNumber}</td>
                     </tr>
                     `;
+                
             }
 
             result.appendChild(table);

@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="Scripts/Menu.js"></script>
+    <link href="Styles.css" rel="stylesheet" />
+    <script>
+        window.onload = function () {
+            var menu = new OD1.MenuPage();
+            menu.Init();
+        }
+
+    </script>
+</head>
+<body>
+    <div>
+        Dish Title <input type="text" id="DishTitle" />
+    </div>
+   
+    <div>
+        Category <select id="Category"></select>
+    </div>
+    <div>
+        Cost <input type="number" id="Cost" />
+    </div>
+    <div>
+       Picture Url<input type="text" id="PictureUrl" />
+    </div>
+    <input type="button" id="btnAddMenuItem" value="Add Menu Item" />
+
+    <div id="result"></div>
+</body>
+</html>
