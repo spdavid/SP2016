@@ -17,9 +17,6 @@
                 this.searchButton.addEventListener("click", () => {
                     this.RenderSearchResults();
                 });
-
-                
-
             });
         }
 
