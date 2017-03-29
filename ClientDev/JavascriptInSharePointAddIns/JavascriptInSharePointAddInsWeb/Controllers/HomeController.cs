@@ -23,7 +23,7 @@ namespace JavascriptInSharePointAddInsWeb.Controllers
                     spUser = clientContext.Web.CurrentUser;
 
                     clientContext.Load(spUser, user => user.Title);
-
+                
                     clientContext.ExecuteQuery();
 
                     ViewBag.UserName = spUser.Title;

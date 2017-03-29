@@ -20,6 +20,39 @@
                 });
           
         }
+
+        public static DisplayBooks() {
+           // var url = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('Books')/items?$select=Title,OD1Category,BookPic,OD1DateBook,OD1BookDesc&$orderby=OD1DateBook";
+            //
+            var url = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('Books')/items?$select=*,SchoolLookup/Id,SchoolLookup/Title&$expand=SchoolLookup";
+
+            Utilities.getJSON(url).then(
+                (data: string) => {
+                    var parsed = JSON.parse(data);
+                    console.log(parsed);
+                   
+                    var books: Array<any> = parsed.value;
+                    Utilities.ready(() => {
+                        var bookResults = document.getElementById("BookResults");
+                        books.forEach(
+                            (book, idx) => {
+                                var bookDate = new Date(book.OD1DateBook);
+                                bookResults.innerHTML += `
+                                <img src='${book.BookPic.Url}' />
+                                <div>
+                                    ${book.Title}
+                                </div>
+                                <div>${book.OD1BookDesc}</div>
+                                <div>${book.OD1Category}</div>
+                                <div>${bookDate.format("yyyy-MM-dd")}</div>
+                            `;
+                            }
+                        );
+                    });
+
+                }
+            );
+        }
     }
 }
 

@@ -1,5 +1,46 @@
 var OD1;
 (function (OD1) {
+    var ListHelper = (function () {
+        function ListHelper() {
+        }
+        ListHelper.ShowLists = function () {
+            // _spPageContextInfo is an object that is on every page in sharepoint
+            var url = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/?$select=Title,Hidden&$filter=Hidden eq false&$OrderBy=Title desc";
+            OD1.Utilities.getJSON(url).then(function (data) {
+                var parsedData = JSON.parse(data);
+                OD1.Utilities.ready(function () {
+                    var results = document.getElementById("results");
+                    var listdata = parsedData.value;
+                    listdata.forEach(function (list, idx) {
+                        results.innerHTML += "<div>" + list.Title + "</div>";
+                    });
+                });
+            });
+        };
+        ListHelper.DisplayBooks = function () {
+            // var url = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('Books')/items?$select=Title,OD1Category,BookPic,OD1DateBook,OD1BookDesc&$orderby=OD1DateBook";
+            //
+            var url = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('Books')/items?$select=*,SchoolLookup/Id,SchoolLookup/Title&$expand=SchoolLookup";
+            OD1.Utilities.getJSON(url).then(function (data) {
+                var parsed = JSON.parse(data);
+                console.log(parsed);
+                var books = parsed.value;
+                OD1.Utilities.ready(function () {
+                    var bookResults = document.getElementById("BookResults");
+                    books.forEach(function (book, idx) {
+                        var bookDate = new Date(book.OD1DateBook);
+                        bookResults.innerHTML += "\n                                <img src='" + book.BookPic.Url + "' />\n                                <div>\n                                    " + book.Title + "\n                                </div>\n                                <div>" + book.OD1BookDesc + "</div>\n                                <div>" + book.OD1Category + "</div>\n                                <div>" + bookDate.format("yyyy-MM-dd") + "</div>\n                            ";
+                    });
+                });
+            });
+        };
+        return ListHelper;
+    }());
+    OD1.ListHelper = ListHelper;
+})(OD1 || (OD1 = {}));
+console.log("im here");
+var OD1;
+(function (OD1) {
     var Utilities = (function () {
         function Utilities() {
         }
@@ -115,28 +156,4 @@ var OD1;
     }());
     OD1.Utilities = Utilities;
 })(OD1 || (OD1 = {}));
-var OD1;
-(function (OD1) {
-    var ListHelper = (function () {
-        function ListHelper() {
-        }
-        ListHelper.ShowLists = function () {
-            // _spPageContextInfo is an object that is on every page in sharepoint
-            var url = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/?$select=Title,Hidden&$filter=Hidden eq false&$OrderBy=Title desc";
-            OD1.Utilities.getJSON(url).then(function (data) {
-                var parsedData = JSON.parse(data);
-                OD1.Utilities.ready(function () {
-                    var results = document.getElementById("results");
-                    var listdata = parsedData.value;
-                    listdata.forEach(function (list, idx) {
-                        results.innerHTML += "<div>" + list.Title + "</div>";
-                    });
-                });
-            });
-        };
-        return ListHelper;
-    }());
-    OD1.ListHelper = ListHelper;
-})(OD1 || (OD1 = {}));
-console.log("im here");
 //# sourceMappingURL=main.js.map
