@@ -1,0 +1,10 @@
+{
+  "solution": {
+    "name": "my-first-spfx-web-part-client-side-solution",
+    "id": "06f84845-3380-48de-9795-3432bd534bd0",
+    "version": "1.0.0.0"
+  },
+  "paths": {
+    "zippedPackage": "solution/my-first-spfx-web-part.sppkg"
+  }
+}
