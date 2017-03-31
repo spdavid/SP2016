@@ -1,0 +1,21 @@
+{
+  "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
+
+  "id": "1d2ee88f-0955-4127-8e94-816d530886e8",
+  "alias": "HockeyPlayersWebPart",
+  "componentType": "WebPart",
+  "version": "0.0.1",
+  "manifestVersion": 2,
+
+  "preconfiguredEntries": [{
+    "groupId": "1d2ee88f-0955-4127-8e94-816d530886e8",
+    "group": { "default": "Under Development" },
+    "title": { "default": "HockeyPlayers" },
+    "description": { "default": "HockeyPlayers description" },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "description": "HockeyPlayers",
+      "Position": "Goalie"
+    }
+  }]
+}

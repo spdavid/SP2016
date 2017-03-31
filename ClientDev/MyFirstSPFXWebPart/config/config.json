@@ -14,12 +14,18 @@
       "entry": "./lib/webparts/bookList/BookListWebPart.js",
       "manifest": "./src/webparts/bookList/BookListWebPart.manifest.json",
       "outputPath": "./dist/book-list.bundle.js"
+    },
+    {
+      "entry": "./lib/webparts/hockeyPlayers/HockeyPlayersWebPart.js",
+      "manifest": "./src/webparts/hockeyPlayers/HockeyPlayersWebPart.manifest.json",
+      "outputPath": "./dist/hockey-players.bundle.js"
     }
   ],
   "externals": {},
   "localizedResources": {
     "helloWorldStrings": "webparts/helloWorld/loc/{locale}.js",
     "changeWebTitleStrings": "webparts/changeWebTitle/loc/{locale}.js",
-    "bookListStrings": "webparts/bookList/loc/{locale}.js"
+    "bookListStrings": "webparts/bookList/loc/{locale}.js",
+    "hockeyPlayersStrings": "webparts/hockeyPlayers/loc/{locale}.js"
   }
 }
