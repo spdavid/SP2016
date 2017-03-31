@@ -4,10 +4,22 @@
       "entry": "./lib/webparts/helloWorld/HelloWorldWebPart.js",
       "manifest": "./src/webparts/helloWorld/HelloWorldWebPart.manifest.json",
       "outputPath": "./dist/hello-world.bundle.js"
+    },
+    {
+      "entry": "./lib/webparts/changeWebTitle/ChangeWebTitleWebPart.js",
+      "manifest": "./src/webparts/changeWebTitle/ChangeWebTitleWebPart.manifest.json",
+      "outputPath": "./dist/change-web-title.bundle.js"
+    },
+    {
+      "entry": "./lib/webparts/bookList/BookListWebPart.js",
+      "manifest": "./src/webparts/bookList/BookListWebPart.manifest.json",
+      "outputPath": "./dist/book-list.bundle.js"
     }
   ],
   "externals": {},
   "localizedResources": {
-    "helloWorldStrings": "webparts/helloWorld/loc/{locale}.js"
+    "helloWorldStrings": "webparts/helloWorld/loc/{locale}.js",
+    "changeWebTitleStrings": "webparts/changeWebTitle/loc/{locale}.js",
+    "bookListStrings": "webparts/bookList/loc/{locale}.js"
   }
 }

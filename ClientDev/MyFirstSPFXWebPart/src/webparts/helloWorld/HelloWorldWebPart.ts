@@ -28,10 +28,7 @@ export default class HelloWorldWebPart extends BaseClientSideWebPart<IHelloWorld
         });
 
       })
-
   }
-
-
 
   protected get dataVersion(): Version {
     return Version.parse('1.0');
