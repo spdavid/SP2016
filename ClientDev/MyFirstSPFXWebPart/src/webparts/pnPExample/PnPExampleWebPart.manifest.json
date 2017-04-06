@@ -1,20 +1,20 @@
 {
   "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
 
-  "id": "aaa005d2-649d-4701-98a3-b3b774f34f29",
-  "alias": "RssreaderWebPart",
+  "id": "9674e80f-0421-4cc8-b1d5-eb2467f20110",
+  "alias": "PnPExampleWebPart",
   "componentType": "WebPart",
   "version": "0.0.1",
   "manifestVersion": 2,
 
   "preconfiguredEntries": [{
-    "groupId": "aaa005d2-649d-4701-98a3-b3b774f34f29",
+    "groupId": "9674e80f-0421-4cc8-b1d5-eb2467f20110",
     "group": { "default": "Under Development" },
-    "title": { "default": "RSSREADER" },
-    "description": { "default": "RSSREADER description" },
+    "title": { "default": "PnPExample" },
+    "description": { "default": "PnPExample description" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "RSSREADER"
+      "description": "PnPExample"
     }
   }]
 }

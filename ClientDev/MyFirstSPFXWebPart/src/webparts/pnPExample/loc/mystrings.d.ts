@@ -1,10 +1,10 @@
-declare interface IRssreaderStrings {
+declare interface IPnPExampleStrings {
   PropertyPaneDescription: string;
   BasicGroupName: string;
   DescriptionFieldLabel: string;
 }
 
-declare module 'rssreaderStrings' {
-  const strings: IRssreaderStrings;
+declare module 'pnPExampleStrings' {
+  const strings: IPnPExampleStrings;
   export = strings;
 }

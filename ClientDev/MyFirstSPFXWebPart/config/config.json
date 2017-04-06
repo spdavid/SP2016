@@ -20,10 +20,11 @@
       "manifest": "./src/webparts/hockeyPlayers/HockeyPlayersWebPart.manifest.json",
       "outputPath": "./dist/hockey-players.bundle.js"
     },
+   
     {
-      "entry": "./lib/webparts/rssreader/RssreaderWebPart.js",
-      "manifest": "./src/webparts/rssreader/RssreaderWebPart.manifest.json",
-      "outputPath": "./dist/rssreader.bundle.js"
+      "entry": "./lib/webparts/pnPExample/PnPExampleWebPart.js",
+      "manifest": "./src/webparts/pnPExample/PnPExampleWebPart.manifest.json",
+      "outputPath": "./dist/pn-p-example.bundle.js"
     }
   ],
   "externals": {},
@@ -32,6 +33,7 @@
     "changeWebTitleStrings": "webparts/changeWebTitle/loc/{locale}.js",
     "bookListStrings": "webparts/bookList/loc/{locale}.js",
     "hockeyPlayersStrings": "webparts/hockeyPlayers/loc/{locale}.js",
-    "rssreaderStrings": "webparts/rssreader/loc/{locale}.js"
+    "rssreaderStrings": "webparts/rssreader/loc/{locale}.js",
+    "pnPExampleStrings": "webparts/pnPExample/loc/{locale}.js"
   }
 }

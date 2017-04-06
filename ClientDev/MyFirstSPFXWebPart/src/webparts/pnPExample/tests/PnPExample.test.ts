@@ -2,7 +2,7 @@
 
 import { assert } from 'chai';
 
-describe('RssreaderWebPart', () => {
+describe('PnPExampleWebPart', () => {
   it('should do something', () => {
     assert.ok(true);
   });
