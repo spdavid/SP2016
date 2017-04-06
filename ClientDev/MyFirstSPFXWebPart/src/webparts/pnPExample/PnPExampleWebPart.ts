@@ -23,25 +23,63 @@ export default class PnPExampleWebPart extends BaseClientSideWebPart<IPnPExample
   }
 
   public render(): void {
-    pnp.sp.web.lists.get().then((data) => {
-      //  console.log(data);
+    // pnp.sp.web.lists.get().then((data) => {
+    //   //  console.log(data);
+    // });
+
+    // pnp.sp.web.lists.getByTitle("Cars").items.filter("carBrand eq 'Volvo'").get().then(data => {
+    //   // console.log(data);
+    // })
+
+    // pnp.sp.web.update({
+    //   Title: "New PNP JS Title For Web"
+    // }).then(r => {
+    //   console.log(r);
+    // });
+
+    // pnp.sp.web.lists.getByTitle("Cars").items.getById(1).update({
+    //   carColor: "Pink"
+    // }).then(r => {
+    //   console.log(r);
+    // });;
+
+    // let batch = pnp.sp.createBatch();
+   
+    // pnp.sp.web.lists.inBatch(batch).get().then((data) => {
+    //   console.log(data);
+    // });
+
+    // pnp.sp.web.lists.getByTitle("Cars").items.filter("carBrand eq 'Volvo'").inBatch(batch).get().then(data => {
+    //   console.log(data);
+    // })
+
+    // pnp.sp.web.inBatch(batch).update({
+    //   Title: "New PNP JS Title For Web"
+    // }).then(r => {
+    //   console.log(r);
+    // });
+
+    // pnp.sp.web.lists.getByTitle("Cars").items.getById(1).inBatch(batch).update({
+    //   carColor: "Pink"
+    // }).then(r => {
+    //   console.log(r);
+    // });;
+
+    // batch.execute().then(() => console.log("All done!"));
+
+  pnp.sp.web.lists.getByTitle("Cars").items.usingCaching().get().then((data) => {
+     console.log(data);
+     this.domElement.innerHTML = "success";
     });
 
-    pnp.sp.web.lists.getByTitle("Cars").items.filter("carBrand eq 'Volvo'").get().then(data => {
-      // console.log(data);
-    })
 
-    pnp.sp.web.update({
-      Title: "New PNP JS Title For Web"
-    }).then(r => {
-      console.log(r);
-    });
-
-    pnp.sp.web.lists.getByTitle("Cars").items.getById(1).update({
-      carColor: "Pink"
-    }).then(r => {
-      console.log(r);
-    });;
+    pnp.sp.web.lists.getByTitle("Cars").items.usingCaching({
+    expiration: pnp.util.dateAdd(new Date(), "minute", 20),
+    key: "david",
+    storeName: "local"
+}).get().then(r => {
+    console.log(r)
+});
 
   }
 
