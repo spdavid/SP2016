@@ -1,0 +1,10 @@
+{
+  "solution": {
+    "name": "cars-spfx-client-side-solution",
+    "id": "038577fe-6697-445d-aa79-2fc9bd8ca017",
+    "version": "1.0.0.0"
+  },
+  "paths": {
+    "zippedPackage": "solution/cars-spfx.sppkg"
+  }
+}

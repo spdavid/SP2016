@@ -1,0 +1,6 @@
+{
+  "workingDir": "./temp/deploy/",
+  "account": "<!-- STORAGE ACCOUNT NAME -->",
+  "container": "cars-spfx",
+  "accessKey": "<!-- ACCESS KEY -->"
+}

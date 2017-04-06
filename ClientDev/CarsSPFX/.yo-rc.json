@@ -1,0 +1,8 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "libraryName": "cars-spfx",
+    "framework": "none",
+    "version": "1.0.0",
+    "libraryId": "038577fe-6697-445d-aa79-2fc9bd8ca017"
+  }
+}

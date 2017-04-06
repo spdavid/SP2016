@@ -1,0 +1,13 @@
+{
+  "entries": [
+    {
+      "entry": "./lib/webparts/carsWebPart/CarsWebPartWebPart.js",
+      "manifest": "./src/webparts/carsWebPart/CarsWebPartWebPart.manifest.json",
+      "outputPath": "./dist/cars-web-part.bundle.js"
+    }
+  ],
+  "externals": {},
+  "localizedResources": {
+    "carsWebPartStrings": "webparts/carsWebPart/loc/{locale}.js"
+  }
+}

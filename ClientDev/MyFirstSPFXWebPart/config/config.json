@@ -19,6 +19,11 @@
       "entry": "./lib/webparts/hockeyPlayers/HockeyPlayersWebPart.js",
       "manifest": "./src/webparts/hockeyPlayers/HockeyPlayersWebPart.manifest.json",
       "outputPath": "./dist/hockey-players.bundle.js"
+    },
+    {
+      "entry": "./lib/webparts/rssreader/RssreaderWebPart.js",
+      "manifest": "./src/webparts/rssreader/RssreaderWebPart.manifest.json",
+      "outputPath": "./dist/rssreader.bundle.js"
     }
   ],
   "externals": {},
@@ -26,6 +31,7 @@
     "helloWorldStrings": "webparts/helloWorld/loc/{locale}.js",
     "changeWebTitleStrings": "webparts/changeWebTitle/loc/{locale}.js",
     "bookListStrings": "webparts/bookList/loc/{locale}.js",
-    "hockeyPlayersStrings": "webparts/hockeyPlayers/loc/{locale}.js"
+    "hockeyPlayersStrings": "webparts/hockeyPlayers/loc/{locale}.js",
+    "rssreaderStrings": "webparts/rssreader/loc/{locale}.js"
   }
 }

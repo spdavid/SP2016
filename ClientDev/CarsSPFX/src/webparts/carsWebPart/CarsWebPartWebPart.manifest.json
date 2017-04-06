@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
+
+  "id": "b7d93665-6de2-4711-b86c-84ce022761f1",
+  "alias": "CarsWebPartWebPart",
+  "componentType": "WebPart",
+  "version": "0.0.1",
+  "manifestVersion": 2,
+
+  "preconfiguredEntries": [{
+    "groupId": "b7d93665-6de2-4711-b86c-84ce022761f1",
+    "group": { "default": "Under Development" },
+    "title": { "default": "CarsWebPart" },
+    "description": { "default": "CarsWebPart description" },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "description": "CarsWebPart"
+    }
+  }]
+}
