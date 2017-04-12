@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
+
+  "id": "cb6b9ae3-6493-4336-a466-621517d86da6",
+  "alias": "CrudWebPartWebPart",
+  "componentType": "WebPart",
+  "version": "0.0.1",
+  "manifestVersion": 2,
+
+  "preconfiguredEntries": [{
+    "groupId": "cb6b9ae3-6493-4336-a466-621517d86da6",
+    "group": { "default": "Under Development" },
+    "title": { "default": "CRUDWebPart" },
+    "description": { "default": "CRUDWebPart description" },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "description": "CRUDWebPart"
+    }
+  }]
+}

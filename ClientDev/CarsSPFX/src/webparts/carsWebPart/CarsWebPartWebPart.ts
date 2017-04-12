@@ -15,18 +15,6 @@ import * as strings from 'carsWebPartStrings';
 import { ICarsWebPartWebPartProps } from './ICarsWebPartWebPartProps';
 
 
-export interface ICar
-{
-    Title: string,
-    carBrand : string,
-    carColor : string,
-    carModel : string,
-    carYear : number,
-    carPicture : {
-        Description : string,
-        Url: string
-    }
-}
 
 
 export default class CarsWebPartWebPart extends BaseClientSideWebPart<ICarsWebPartWebPartProps> {

@@ -1,0 +1,8 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "libraryName": "crudpnpjs",
+    "framework": "none",
+    "version": "1.0.0",
+    "libraryId": "b0e43758-cfe3-494e-9a9a-376a04ee044a"
+  }
+}

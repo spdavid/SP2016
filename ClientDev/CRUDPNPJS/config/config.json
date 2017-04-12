@@ -1,0 +1,13 @@
+{
+  "entries": [
+    {
+      "entry": "./lib/webparts/crudWebPart/CrudWebPartWebPart.js",
+      "manifest": "./src/webparts/crudWebPart/CrudWebPartWebPart.manifest.json",
+      "outputPath": "./dist/crud-web-part.bundle.js"
+    }
+  ],
+  "externals": {},
+  "localizedResources": {
+    "crudWebPartStrings": "webparts/crudWebPart/loc/{locale}.js"
+  }
+}

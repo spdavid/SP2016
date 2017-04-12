@@ -1,0 +1,10 @@
+{
+  "solution": {
+    "name": "crudpnpjs-client-side-solution",
+    "id": "b0e43758-cfe3-494e-9a9a-376a04ee044a",
+    "version": "1.0.0.0"
+  },
+  "paths": {
+    "zippedPackage": "solution/crudpnpjs.sppkg"
+  }
+}
