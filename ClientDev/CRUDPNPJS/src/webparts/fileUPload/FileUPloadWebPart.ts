@@ -10,6 +10,7 @@ import styles from './FileUPload.module.scss';
 import * as strings from 'fileUPloadStrings';
 import { IFileUPloadWebPartProps } from './IFileUPloadWebPartProps';
 import pnp from "sp-pnp-js";
+// https://github.com/SharePoint/PnP-JS-Core/wiki/Working-With:-Files
 export default class FileUPloadWebPart extends BaseClientSideWebPart<IFileUPloadWebPartProps> {
 
  public onInit(): Promise<void> {
