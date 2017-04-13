@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ResponsiveMVC</title>
+
+    <link rel="stylesheet" type="text/css"  href="/css/site.css" />
+        
+</head>
+<body>
+  <nav class="cf">
+    <div class="span3">
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/81/Williams_Companies_logo.svg/1280px-Williams_Companies_logo.svg.png" /> 
+    </div><div class="span9 col">menu</div>
+  </nav>
+  <main>
+     @RenderBody()
+   </main>
+<footer>
+    <div class="span12">
+        Copywrite 2017 David;
+    </div>
+</footer>
+
+   
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
