@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
+
+  "id": "ed9d96e8-5d7f-48dc-8334-94e11f0608c9",
+  "alias": "FileUPloadWebPart",
+  "componentType": "WebPart",
+  "version": "0.0.1",
+  "manifestVersion": 2,
+
+  "preconfiguredEntries": [{
+    "groupId": "ed9d96e8-5d7f-48dc-8334-94e11f0608c9",
+    "group": { "default": "Under Development" },
+    "title": { "default": "FileUPload" },
+    "description": { "default": "FileUPload description" },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "description": "FileUPload"
+    }
+  }]
+}

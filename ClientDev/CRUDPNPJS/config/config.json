@@ -4,10 +4,16 @@
       "entry": "./lib/webparts/crudWebPart/CrudWebPartWebPart.js",
       "manifest": "./src/webparts/crudWebPart/CrudWebPartWebPart.manifest.json",
       "outputPath": "./dist/crud-web-part.bundle.js"
+    },
+    {
+      "entry": "./lib/webparts/fileUPload/FileUPloadWebPart.js",
+      "manifest": "./src/webparts/fileUPload/FileUPloadWebPart.manifest.json",
+      "outputPath": "./dist/file-u-pload.bundle.js"
     }
   ],
   "externals": {},
   "localizedResources": {
-    "crudWebPartStrings": "webparts/crudWebPart/loc/{locale}.js"
+    "crudWebPartStrings": "webparts/crudWebPart/loc/{locale}.js",
+    "fileUPloadStrings": "webparts/fileUPload/loc/{locale}.js"
   }
 }
