@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-prompt": "^0.2.0",
+    "gulp-spsave": "^3.0.0",
+    "gulp-typescript": "^3.1.6",
+    "gulp-watch": "^4.3.11",
+    "typescript": "^2.0.6"
+  }
+}
