@@ -28,6 +28,7 @@ export default class CrudWebPartWebPart extends BaseClientSideWebPart<ICrudWebPa
   }
 
   public render(): void {
+    
     this.domElement.innerHTML = "";
     CarHelper.GetCars().then((cars => {
       cars.forEach(car => {

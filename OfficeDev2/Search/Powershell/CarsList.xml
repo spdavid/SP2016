@@ -1,0 +1,46 @@
+   
+<pnp:ProvisioningTemplate ID="SPECIALTEAM" Version="1.0" 
+    xmlns:pnp="http://schemas.dev.office.com/PnP/2017/05/ProvisioningSchema">
+    <pnp:SiteFields>
+        <Field ID="{e6eadba1-8af8-46e1-8031-1f69cc82c100}" Type="Text" Name="OD2_Brand" DisplayName="Brand" Group="OD" MaxLength="255" AllowDeletion="TRUE" />
+        <Field ID="{93813468-d4bb-4601-859e-674b181a82ed}" Type="Choice" Name="OD2_Color" DisplayName="Color" Group="OD" Format="Dropdown" AllowDeletion="TRUE">
+            <CHOICES>
+                <CHOICE>Red</CHOICE>
+                <CHOICE>Black</CHOICE>
+                <CHOICE>Green</CHOICE>
+                <CHOICE>Pink</CHOICE>
+            </CHOICES>
+        </Field>
+        <!--Hyperlink or Image-->
+        <Field ID="{76627294-f36a-45c1-bed1-30e280d0e7a8}" Name="OD2_CarPic" DisplayName="Car Picture" Type="URL" Format="Image" Group="OD" />
+    </pnp:SiteFields>
+
+    <pnp:ContentTypes>
+        <pnp:ContentType ID="0x0100711d27f6f13c40c2b2204293f7ac47ed" Name="Car" Group="OD" Description="Cars Content Type">
+            <pnp:FieldRefs>
+                <!-- Brand -->
+                <pnp:FieldRef ID="{e6eadba1-8af8-46e1-8031-1f69cc82c100}"  />
+                <!-- Color -->
+                <pnp:FieldRef ID="{93813468-d4bb-4601-859e-674b181a82ed}" />
+                <!-- car pic -->
+                <pnp:FieldRef ID="{76627294-f36a-45c1-bed1-30e280d0e7a8}" />
+            </pnp:FieldRefs>
+        </pnp:ContentType>
+    </pnp:ContentTypes>
+
+<pnp:Lists>
+    <pnp:ListInstance Title="Cars"
+                     Description="Cars List"
+                     OnQuickLaunch="true"
+                     TemplateType="100"
+                     Url="Lists/Cars"
+                     EnableVersioning="false"
+                     RemoveExistingContentTypes="true">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x0100711d27f6f13c40c2b2204293f7ac47ed" Default="true"/>
+          </pnp:ContentTypeBindings>
+        </pnp:ListInstance>
+      </pnp:Lists>
+</pnp:ProvisioningTemplate>
+
+
