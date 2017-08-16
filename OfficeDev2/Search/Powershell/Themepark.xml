@@ -1,0 +1,97 @@
+   
+<pnp:ProvisioningTemplate ID="ThemPark" Version="1.0" 
+    xmlns:pnp="http://schemas.dev.office.com/PnP/2016/05/ProvisioningSchema">
+
+     <!--<pnp:TermGroups>
+        <pnp:TermGroup ID="{b2c1a66e-7858-4d3e-87f9-2e4b62bc8cfd}" Name="OD2">
+          <pnp:TermSets>
+            <pnp:TermSet Name="ThemePark Type" ID="{ff4abf69-cf91-47b3-968f-520e9a341aa9}" Language="1033">
+              <pnp:Terms>
+                <pnp:Term Name="Water Park" ID="{aca55741-ba77-488c-baac-f9d2c14af0d2}" />
+                <pnp:Term Name="Amusement Park" ID="{8f66861f-0598-4876-9da6-f6473e2b2957}" />
+                <pnp:Term Name="National Park" ID="{cdd2e1e1-9ebc-4ce7-9395-a40aad93b43e}" />
+                <pnp:Term Name="Animal Park" ID="{d5c77a96-d11f-4a15-9a6f-f5e402314fa7}" />
+              </pnp:Terms>
+            </pnp:TermSet>
+          </pnp:TermSets>
+          <pnp:Contributors>
+            <pnp:User Name="david@zalosolutions.com"/>
+          </pnp:Contributors>
+        </pnp:TermGroup>
+      </pnp:TermGroups>
+
+
+
+    <pnp:SiteFields>
+        <Field ID="{aa41fc70-9ec8-47d3-8636-5068d3cd1e97}" Type="Text" Name="OD2_Description" DisplayName="Description" Group="OD" MaxLength="255" AllowDeletion="TRUE" />
+        <Field ID="{cad8374b-9bbb-4196-915e-371e5f9df6c7}" Name="OD2_ThemParkPic" DisplayName="ThemPark Picture" Type="URL" Format="Image" Group="OD" />
+        <Field ID="{ed3eeabd-cec0-44c5-88b1-37ddda363be3}" Type="Note" DisplayName="OD2_ThemeParkType_0" InternalName="OD2_ThemeParkType_0"  StaticName="OD2_ThemeParkType_0" Name="OD2_ThemeParkType_0" ShowInViewForms="FALSE" Required="FALSE" Hidden="TRUE" CanToggleHidden="TRUE" />
+        <Field ID="{fe22443d-17b2-4055-bec1-0eda3d5c5735}" Type="TaxonomyFieldType" Name="OD2_ThemeParkType" InternalName="OD2_ThemeParkType"  DisplayName="ThemePark Type" Group="OD" ShowField="Term1033" AllowDeletion="TRUE" Required="TRUE">
+      <Customization>
+        <ArrayOfProperty>
+          <Property>
+            <Name>SspId</Name>
+            <Value xmlns:q1="http://www.w3.org/2001/XMLSchema" p4:type="q1:string" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">{sitecollectiontermstoreid}</Value>
+          </Property>
+          <Property>
+            <Name>TermSetId</Name>
+            <Value xmlns:q2="http://www.w3.org/2001/XMLSchema" p4:type="q2:string" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">ff4abf69-cf91-47b3-968f-520e9a341aa9</Value>
+          </Property>
+          <Property>
+            <Name>TextField</Name>
+            <Value xmlns:q6="http://www.w3.org/2001/XMLSchema" p4:type="q6:string" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">ed3eeabd-cec0-44c5-88b1-37ddda363be3</Value>
+          </Property>
+          <Property>
+            <Name>IsPathRendered</Name>
+            <Value xmlns:q7="http://www.w3.org/2001/XMLSchema" p4:type="q7:boolean" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">false</Value>
+          </Property>
+          <Property>
+            <Name>IsKeyword</Name>
+            <Value xmlns:q8="http://www.w3.org/2001/XMLSchema" p4:type="q8:boolean" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">false</Value>
+          </Property>
+        </ArrayOfProperty>
+      </Customization>
+    </Field>
+
+
+    </pnp:SiteFields>-->
+
+    <pnp:ContentTypes>
+        <pnp:ContentType ID="0x0100a2140e846431454289fe7240fdcf57d5" Name="ThemePark" Group="OD" Description="ThemePark Content Type">
+            <pnp:FieldRefs>
+                <!-- Description -->
+                <pnp:FieldRef ID="{aa41fc70-9ec8-47d3-8636-5068d3cd1e97}"  />
+                <!-- Pic -->
+                <pnp:FieldRef ID="{cad8374b-9bbb-4196-915e-371e5f9df6c7}" />
+                <!-- themepark type -->
+                <pnp:FieldRef ID="{fe22443d-17b2-4055-bec1-0eda3d5c5735}" />
+            </pnp:FieldRefs>
+        </pnp:ContentType>
+    </pnp:ContentTypes>
+
+<pnp:Lists>
+    <pnp:ListInstance Title="ThemeParks"
+                     Description="ThemeParks List"
+                     OnQuickLaunch="true"
+                     TemplateType="100"
+                     Url="Lists/ThemeParks"
+                     EnableVersioning="false"
+                     RemoveExistingContentTypes="true">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x0100a2140e846431454289fe7240fdcf57d5" Default="true"/>
+          </pnp:ContentTypeBindings>
+           <pnp:Views RemoveExistingViews="true">
+            <View Name="{53F4020D-4287-4DC9-B122-629849A348C4}" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{sitecollection}/ThemeParks/Forms/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/dlicon.png?rev=39">
+              <ViewFields>
+                <FieldRef Name="Title" />
+                <FieldRef Name="OD2_Description" />
+                <FieldRef Name="OD2_ThemParkPic" />
+                <FieldRef Name="OD2_ThemeParkType" />
+              </ViewFields>
+            </View>
+          </pnp:Views>
+        </pnp:ListInstance>
+      </pnp:Lists>
+</pnp:ProvisioningTemplate>
+
+
