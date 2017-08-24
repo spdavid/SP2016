@@ -4,10 +4,16 @@
       "entry": "./lib/webparts/searchPart/SearchPartWebPart.js",
       "manifest": "./src/webparts/searchPart/SearchPartWebPart.manifest.json",
       "outputPath": "./dist/search-part.bundle.js"
+    },
+    {
+      "entry": "./lib/webparts/taskSearch/TaskSearchWebPart.js",
+      "manifest": "./src/webparts/taskSearch/TaskSearchWebPart.manifest.json",
+      "outputPath": "./dist/task-search.bundle.js"
     }
   ],
   "externals": {},
   "localizedResources": {
-    "searchPartStrings": "webparts/searchPart/loc/{locale}.js"
+    "searchPartStrings": "webparts/searchPart/loc/{locale}.js",
+    "taskSearchStrings": "webparts/taskSearch/loc/{locale}.js"
   }
 }

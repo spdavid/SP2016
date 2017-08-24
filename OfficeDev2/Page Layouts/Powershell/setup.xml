@@ -1,0 +1,40 @@
+   
+
+
+<pnp:ProvisioningTemplate ID="SPECIALTEAM" Version="1.0" 
+    xmlns:pnp="http://schemas.dev.office.com/PnP/2016/05/ProvisioningSchema">
+    <pnp:SiteFields>
+        <Field ID="{d4dbd59d-bfe2-4e8b-a0df-504393a52564}" Type="Text" Name="OD2_Team" DisplayName="Team Name" Group="Hockey" MaxLength="255" AllowDeletion="TRUE" />
+        <Field ID="{70f3e38a-68c0-45f1-bd3e-1c2da85c01b7}" Type="Choice" Name="OD2_Position" DisplayName="Position" Group="Hockey" Format="Dropdown" AllowDeletion="TRUE">
+            <CHOICES>
+                <CHOICE>Center</CHOICE>
+                <CHOICE>Right Wing</CHOICE>
+                <CHOICE>Left Wing</CHOICE>
+                <CHOICE>Right Defence</CHOICE>
+                <CHOICE>Left Defence</CHOICE>
+                <CHOICE>Goalie</CHOICE>
+            </CHOICES>
+        </Field>
+        <Field ID="{dd4d9b5e-8fda-4f5f-ba00-532fe5b214df}" Type="Number" Name="OD2_Number" DisplayName="Shirt Number" Group="Hockey" AllowDeletion="TRUE" />
+        <Field ID="{31508083-beff-48fc-9668-d902a52eb1b6}" Type="Image" Name="OD2_PlayerImage" DisplayName="Player Image" Group="Hockey" Required="FALSE" RichText="TRUE" RichTextMode="FullHtml" />
+        <Field ID="{51eb27f0-494f-42ad-8626-b05192d8107b}" Name="OD2_PlayerDesc" StaticName="OD2_PlayerDesc"  Group="Hockey" DisplayName="Player Description" Description="Player desc" Type="HTML" Required="FALSE" Sealed="FALSE" RichText="TRUE" RichTextMode="FullHtml" />
+    </pnp:SiteFields>
+    <pnp:ContentTypes>
+        <pnp:ContentType ID="0x010100C568DB52D9D0A14D9B2FDCC96666E9F2007948130EC3DB064584E219954237AF39006edc0d6228334afd8cee47a96224f690" Name="Hockey Player" Group="OD" Description="Hockey Player Content Type">
+            <pnp:FieldRefs>
+                <!-- Team -->
+                <pnp:FieldRef ID="{d4dbd59d-bfe2-4e8b-a0df-504393a52564}" />
+                <!-- Position -->
+                <pnp:FieldRef ID="{70f3e38a-68c0-45f1-bd3e-1c2da85c01b7}" />
+                <!-- number -->
+                <pnp:FieldRef ID="{dd4d9b5e-8fda-4f5f-ba00-532fe5b214df}" />
+                <!-- Image -->
+                <pnp:FieldRef ID="{31508083-beff-48fc-9668-d902a52eb1b6}" />
+                <!-- Description -->
+                <pnp:FieldRef ID="{51eb27f0-494f-42ad-8626-b05192d8107b}" />
+            </pnp:FieldRefs>
+        </pnp:ContentType>
+    </pnp:ContentTypes>
+</pnp:ProvisioningTemplate>
+
+
