@@ -1,5 +1,4 @@
 {
-  "$schema": "https://dev.office.com/json-schemas/spfx-build/config.2.0.schema.json",
   "version": "2.0",
   "bundles": {
     "header-example-application-customizer": {
@@ -9,10 +8,19 @@
           "manifest": "./src/extensions/headerExample/HeaderExampleApplicationCustomizer.manifest.json"
         }
       ]
+    },
+    "combine-names-command-set": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/combineNames/CombineNamesCommandSet.js",
+          "manifest": "./src/extensions/combineNames/CombineNamesCommandSet.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
-    "HeaderExampleApplicationCustomizerStrings": "lib/extensions/headerExample/loc/{locale}.js"
+    "HeaderExampleApplicationCustomizerStrings": "lib/extensions/headerExample/loc/{locale}.js",
+    "CombineNamesCommandSetStrings": "lib/extensions/combineNames/loc/{locale}.js"
   }
 }
