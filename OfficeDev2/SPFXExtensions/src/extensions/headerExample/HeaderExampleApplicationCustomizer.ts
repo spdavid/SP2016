@@ -6,7 +6,7 @@ import {
   PlaceholderName
 } from '@microsoft/sp-application-base';
 
-import * as strings from 'HeaderExampleApplicationCustomizerStrings';
+import * as strings from   'HeaderExampleApplicationCustomizerStrings';
 
 import pnp from "sp-pnp-js";
 import { escape } from '@microsoft/sp-lodash-subset';
