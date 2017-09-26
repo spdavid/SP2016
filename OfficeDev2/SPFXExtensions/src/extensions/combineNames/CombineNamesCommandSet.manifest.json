@@ -17,7 +17,7 @@
 
   "items": {
     "COMMAND_1": {
-      "title": { "default": "Show Selected Items" },
+      "title": { "default": "CombineNames" },
       "iconImageUrl": "icons/request.png",
       "type": "command"
     },

@@ -8,6 +8,9 @@ import {
 } from '@microsoft/sp-listview-extensibility';
 
 import * as strings from 'CombineNamesCommandSetStrings';
+import pnp from "sp-pnp-js";
+
+declare var _spPageContextInfo : any;
 
 /**
  * If your command set uses the ClientSideComponentProperties JSON input,
@@ -27,7 +30,9 @@ export default class CombineNamesCommandSet
   @override
   public onInit(): Promise<void> {
     Log.info(LOG_SOURCE, 'Initialized CombineNamesCommandSet');
-
+    pnp.setup({
+      spfxContext: this.context
+    });
     this.properties.disabledCommandIds = [];
     this.properties.disabledCommandIds.push("COMMAND_1");
     return Promise.resolve<void>();
@@ -35,8 +40,8 @@ export default class CombineNamesCommandSet
 
   @override
   public onListViewUpdated(event: IListViewCommandSetListViewUpdatedParameters): void {
-    
-    if (this.context.pageContext.list.title == "Webbplatsmallar") {
+    console.log("is updated");
+    if (this.context.pageContext.list.title == "Names") {
 
       console.log(event);
       if (event.selectedRows.length > 0) {
@@ -83,10 +88,29 @@ export default class CombineNamesCommandSet
           alertText += "id : " + id + " Title " + Title + "\n";
 
 
+          var list = pnp.sp.web.lists.getByTitle(_spPageContextInfo.listTitle);
+           list.items.getById(id).select('Title', 'LastName').get().then((item) => {
+           console.log(item);
+            list.items.getById(id).update({
+                  FullName: item.Title +  " " + item.LastName
+              });
+
+
+           });
+
+
+           
+
+        //   item.update();
+
 
         });
+ window.setTimeout(() => {
+              location.reload();
+            }, 2000);
+      
 
-        alert(alertText);
+
         break;
       case 'COMMAND_2':
         alert(`Clicked ${strings.Command2}`);

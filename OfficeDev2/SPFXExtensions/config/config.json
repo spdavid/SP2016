@@ -16,11 +16,20 @@
           "manifest": "./src/extensions/combineNames/CombineNamesCommandSet.manifest.json"
         }
       ]
+    },
+    "status-indicator-field-customizer": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/statusIndicator/StatusIndicatorFieldCustomizer.js",
+          "manifest": "./src/extensions/statusIndicator/StatusIndicatorFieldCustomizer.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
     "HeaderExampleApplicationCustomizerStrings": "lib/extensions/headerExample/loc/{locale}.js",
-    "CombineNamesCommandSetStrings": "lib/extensions/combineNames/loc/{locale}.js"
+    "CombineNamesCommandSetStrings": "lib/extensions/combineNames/loc/{locale}.js",
+    "StatusIndicatorFieldCustomizerStrings": "lib/extensions/statusIndicator/loc/{locale}.js"
   }
 }

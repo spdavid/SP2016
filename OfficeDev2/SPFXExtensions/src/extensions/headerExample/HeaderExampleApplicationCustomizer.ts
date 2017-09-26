@@ -11,6 +11,18 @@ import * as strings from   'HeaderExampleApplicationCustomizerStrings';
 import pnp from "sp-pnp-js";
 import { escape } from '@microsoft/sp-lodash-subset';
 
+
+
+
+
+export interface LinksResult
+{
+  URL : {
+    Description: string;
+    Url : string;
+  }
+}
+
 const LOG_SOURCE: string = 'HeaderExampleApplicationCustomizer';
 
 /**
@@ -69,16 +81,30 @@ export default class HeaderExampleApplicationCustomizer
 
 
       if (this._topPlaceholder.domElement) {
-       var html = "";
-        pnp.sp.web.lists.get().then((data : Array<any>) => {
-          console.log(data);
-          data.forEach((list) => {
-            console.log(list);
-            html += `<div>${list.Title}</div>`;
-          });
+       var html = "<ul style='list-style-type: none; margin: 0;padding: 0;'>";
 
-          this._topPlaceholder.domElement.innerHTML = html;
+       pnp.sp.web.lists.getByTitle("NavigationLinks").items
+       .select('URL')
+       .get()
+       .then((data : LinksResult[]) => {
+        data.forEach((link) => {
+            html += `<li style='display: inline;'><a href='${link.URL.Url}'>${link.URL.Description}</a> </li>`
+
         });
+        html += "</ul>"
+        this._topPlaceholder.domElement.innerHTML = html;
+       });;
+
+
+        // pnp.sp.web.lists.get().then((data : Array<any>) => {
+        //   console.log(data);
+        //   data.forEach((list) => {
+        //     console.log(list);
+        //     html += `<div>${list.Title}</div>`;
+        //   });
+
+        //   this._topPlaceholder.domElement.innerHTML = html;
+        // });
 
         
       }
