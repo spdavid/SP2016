@@ -1,0 +1,18 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "my-pics-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/myPics/MyPicsWebPart.js",
+          "manifest": "./src/webparts/myPics/MyPicsWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "MyPicsWebPartStrings": "lib/webparts/myPics/loc/{locale}.js"
+  }
+}
