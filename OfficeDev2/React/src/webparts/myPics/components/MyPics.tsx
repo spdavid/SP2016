@@ -40,12 +40,7 @@ export default class MyPics extends React.Component<IMyPicsProps, IMyPicsState> 
           {myPics.map((pic) => {
               return <img className={styles.myImage} src={pic.FileRef} />
             })}
-
-
           </div>
-
-
-
         }
 
         {this.state.isReady == false &&

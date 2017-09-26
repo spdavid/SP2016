@@ -9,10 +9,19 @@
           "manifest": "./src/webparts/myPics/MyPicsWebPart.manifest.json"
         }
       ]
+    },
+    "my-books-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/myBooks/MyBooksWebPart.js",
+          "manifest": "./src/webparts/myBooks/MyBooksWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
-    "MyPicsWebPartStrings": "lib/webparts/myPics/loc/{locale}.js"
+    "MyPicsWebPartStrings": "lib/webparts/myPics/loc/{locale}.js",
+    "MyBooksWebPartStrings": "lib/webparts/myBooks/loc/{locale}.js"
   }
 }
