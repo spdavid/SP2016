@@ -17,11 +17,20 @@
           "manifest": "./src/webparts/myBooks/MyBooksWebPart.manifest.json"
         }
       ]
+    },
+    "office-fabric-example-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/officeFabricExample/OfficeFabricExampleWebPart.js",
+          "manifest": "./src/webparts/officeFabricExample/OfficeFabricExampleWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
     "MyPicsWebPartStrings": "lib/webparts/myPics/loc/{locale}.js",
-    "MyBooksWebPartStrings": "lib/webparts/myBooks/loc/{locale}.js"
+    "MyBooksWebPartStrings": "lib/webparts/myBooks/loc/{locale}.js",
+    "OfficeFabricExampleWebPartStrings": "lib/webparts/officeFabricExample/loc/{locale}.js"
   }
 }
