@@ -1,0 +1,12 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "consuming-a-function-client-side-solution",
+    "id": "035b626e-ceb9-4381-8437-db08409bbd83",
+    "version": "1.0.0.0",
+    "skipFeatureDeployment": true
+  },
+  "paths": {
+    "zippedPackage": "solution/consuming-a-function.sppkg"
+  }
+}
